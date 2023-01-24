@@ -156,15 +156,36 @@ Tegn Lorenz kurver for USA og China i 1985 og 2015. Du finner data med inntektsf
 Tolk Lorenz-kurvene, hva har skjedd med ulikheten i China og USA mellom 1985 ogo 2015?
 
 ```{r}
-df_income <- read_csv("https://github.com/uit-sok-2011-v23/uit-sok-2011-v23.github.io/blob/main/assets/income.csv")
-View(df_income)
-
-#  Velg data for China og USA i C%rene 1980 og 2014
-sel_Year <- c(1985, 2015)
-sel_Country <- c("United States", "China")
-temp <- subset(
-  df_income, 
-  (df_income$Country %in% sel_Country) & 
-    (df_income$Year %in% sel_Year))
-temp
+# df_income <- read_csv("C:/Users/OddVi/OneDrive/Dokumenter/Studier/SOK-2011/Oppgaver/income.csv", skip = 2)
+# 
+# 
+# #  Velg data for China og USA i C%rene 1980 og 2014
+# sel_Year <- c(1985, 2015)
+# sel_Country <- c("United States", "China")
+# temp <- subset(
+#   df_income, 
+#   (df_income$Country %in% sel_Country) & 
+#     (df_income$Year %in% sel_Year))
+# temp
 ```
+
+**Oppgave 5**  
+Gå ut fra at en økonomis totale produksjon (BNP) kan beskrives ved bruk av produksjonsfunksjonen:  
+
+$Y(t) = A(t)*K(t)^\alpha*L(t)^\beta*R(t)^\gamma$  
+der $\alpha = 0.4,\beta = 0.5$ og $\gamma = 0.1$.  
+
+Oppgave 5a:  
+Med hvor mange prosent endres $Y$ dersom $K$ øker med 1$\%$, ceteris paribus?
+Dette kan vi lese direkte av eksponentene. Hvis $K$ øker med 1$\%$, vil $Y$ øke 
+med 0.4$\%$.  
+
+Oppgave 5b:  
+Hvor mange prosent endres $Y$ med hvis alle produksjonsfaktorene ($K,L,R$) endres
+med 10$\%$?
+Vi kan også lese dette direkte ut av produktfunksjonen. Når summen av ekspnentene er 1,
+har vi konstant skalautbytte. Dette betyr at når alle produksjonsfaktorene ($K,L,R$) endres
+med 10$\%$, vil $Y$ endres med 10$\%$.
+
+
+
