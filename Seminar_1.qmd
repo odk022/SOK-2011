@@ -1,0 +1,31 @@
+---
+title: "Seminar_1"
+author: "Oddmund Klæboe"
+format: html
+editor: visual
+---
+
+
+
+```{r}
+
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+#| warning: false
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(plyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(WDI))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(countrycode))
+suppressPackageStartupMessages(library(scales))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(ineq))
+suppressPackageStartupMessages(library(reshape2))
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
