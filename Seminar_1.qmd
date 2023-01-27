@@ -156,36 +156,171 @@ Tegn Lorenz kurver for USA og China i 1985 og 2015. Du finner data med inntektsf
 Tolk Lorenz-kurvene, hva har skjedd med ulikheten i China og USA mellom 1985 ogo 2015?
 
 ```{r}
-# df_income <- read_csv("C:/Users/OddVi/OneDrive/Dokumenter/Studier/SOK-2011/Oppgaver/income.csv", skip = 2)
-# 
-# 
-# #  Velg data for China og USA i C%rene 1980 og 2014
-# sel_Year <- c(1985, 2015)
-# sel_Country <- c("United States", "China")
-# temp <- subset(
-#   df_income, 
-#   (df_income$Country %in% sel_Country) & 
-#     (df_income$Year %in% sel_Year))
-# temp
+
+setwd("C:/Users/OddVi/OneDrive/Dokumenter/Studier/SOK-2011/Oppgaver")
+
+library(readr)
+df_income <- read_csv("https://raw.githubusercontent.com/uit-sok-2011-v23/uit-sok-2011-v23.github.io/main/assets/income.csv", skip = 2)
+View(df_income)
+
+
+# Velg data for China og USA i C%rene 1980 og 2014
+sel_Year <- c(1985, 2015)
+sel_Country <- c("United States", "China")
+temp <- subset(
+  df_income,
+  (df_income$Country %in% sel_Country) &
+    (df_income$Year %in% sel_Year))
+temp
 ```
 
-**Oppgave 5**  
-Gå ut fra at en økonomis totale produksjon (BNP) kan beskrives ved bruk av produksjonsfunksjonen:  
-
-$Y(t) = A(t)*K(t)^\alpha*L(t)^\beta*R(t)^\gamma$  
-der $\alpha = 0.4,\beta = 0.5$ og $\gamma = 0.1$.  
-
-Oppgave 5a:  
-Med hvor mange prosent endres $Y$ dersom $K$ øker med 1$\%$, ceteris paribus?
-Dette kan vi lese direkte av eksponentene. Hvis $K$ øker med 1$\%$, vil $Y$ øke 
-med 0.4$\%$.  
-
-Oppgave 5b:  
-Hvor mange prosent endres $Y$ med hvis alle produksjonsfaktorene ($K,L,R$) endres
-med 10$\%$?
-Vi kan også lese dette direkte ut av produktfunksjonen. Når summen av ekspnentene er 1,
-har vi konstant skalautbytte. Dette betyr at når alle produksjonsfaktorene ($K,L,R$) endres
-med 10$\%$, vil $Y$ endres med 10$\%$.
+```{r}
+print("Total incomes are:") 
+```
 
 
+```{r}
+total_income <- temp[, "Mean Income"] * 
+  temp[, "Population"]  
+total_income
+```
+```{r}
+# Pick the deciles (Columns 3 to 12) in Row 1 (China, 1985)
+decs_c85 <- unlist(temp[1, 3:12])
+                               
+# The unlist function transforms temp[1, 3:12] from a 
+# tibble to simple vector with data which simplifies the 
+# calculations.
 
+# Give the total income, assuming a population of 10
+total_inc <- 10 * unlist(temp[1, "Mean Income"])
+
+cum_inc_share_c85 = cumsum(decs_c85) / total_inc
+cum_inc_share_c85
+```
+```{r}
+# For China, 2015  
+# Go to Row 2 (China, 2015)
+decs_c15 <- unlist(temp[2, 3:12])
+
+# Give the total income, assuming a population of 10
+total_inc <- 10 * unlist(temp[2, "Mean Income"]) 
+
+cum_inc_share_c15 = cumsum(decs_c15) / total_inc  
+  
+# For the US, 1985 
+# Select Row 3 (USA, 1985)
+decs_us85 <- unlist(temp[3, 3:12])
+
+# Give the total income, assuming a population of 10
+total_inc <- 10 * unlist(temp[3, "Mean Income"])
+
+cum_inc_share_us85 = cumsum(decs_us85) / total_inc  
+  
+# For the US, 2015  
+# Select Row 4 (USA, 2015)
+decs_us15 <- unlist(temp[4, 3:12])   
+
+# Give the total income, assuming a population of 10 
+total_inc <- 10 * unlist(temp[4, "Mean Income"])
+
+cum_inc_share_us15 = cumsum(decs_us15) / total_inc  
+```
+
+**Lorenz kurver**
+
+```{r}
+plot(cum_inc_share_c85, type = "l", col = "blue", 
+  lwd = 2, ylab = "Cumulative income share")  
+
+# Add the perfect equality line 
+abline(a = 0, b = 0.1, col = "black", lwd = 2)
+
+title("Lorenz curve, China, 1985")
+
+plot(cum_inc_share_c85, type = "l", col = "blue", 
+  lty = 2, lwd = 2, xlab = "Deciles", 
+  ylab = "Cumulative income share")  
+
+# Add the perfect equality line 
+abline(a = 0, b = 0.1, col = "black", lwd = 2)  
+
+# lty = 1 = dashed line  
+lines(cum_inc_share_c15, col = "green", lty = 1, lwd = 2)
+
+# lty = 2 = solid line  
+lines(cum_inc_share_us85, col = "red", lty = 2, lwd = 2)
+
+lines(cum_inc_share_us15, col = "orange", 
+  lty = 1, lwd = 2)  
+
+title("Lorenz curves, China and the US (1985 and 2015)")  
+
+legend("topleft", lty = 2:1, lwd = 2, cex = 1.2, legend = 
+  c("China, 1985", "China, 2015",
+    "US, 1985", "US, 2015"),  
+  col = c("blue", "green", "red", "orange"))
+
+```
+
+**GINI-koeffisienter**  
+```{r}
+g_c85 <- Gini(decs_c85)
+g_c15 <- Gini(decs_c15)
+g_us85 <- Gini(decs_us85)
+g_us15 <- Gini(decs_us15)
+
+```
+
+```{r}
+paste("Gini coefficients")
+paste("China - 1985: ", round(g_c85, 2), 
+  ", 2015: ", round(g_c15, 2))
+
+paste("United States - 1985: ", round(g_us85, 2), 
+  ", 2015: ", round(g_us15, 2))
+  
+```
+Setter inn Gini i plottet:
+```{r}
+plot(cum_inc_share_c85, type = "l", col = "blue", lty = 2, 
+  lwd = 2, xlab = "Deciles", 
+  ylab = "Cumulative income share")   
+
+# Add the perfect equality line
+abline(a = 0, b = 0.1, col = "black", lwd = 2)
+
+# lty = 1 = dashed line
+lines(cum_inc_share_c15, col = "green", lty = 1, lwd = 2)
+
+# lty = 2 = solid line
+lines(cum_inc_share_us85, col = "red", lty = 2, lwd = 2)
+
+lines(cum_inc_share_us15, col = "orange", lty = 1, lwd = 2)
+
+title("Lorenz curves, China and the US (1985 and 2015)")
+
+legend("topleft", lty = 2:1, lwd = 2, cex = 1.2, legend = 
+  c("China, 1985", "China, 2015", 
+    "US, 1985", "US, 2015"),
+  col = c("blue", "green", "red", "orange"))
+
+text(8.5, 0.78, round(g_c85, digits = 3))
+text(9.4, 0.6, round(g_c15, digits = 3))
+text(5.7, 0.38, round(g_us85, digits = 3))
+text(6.4, 0.3, round(g_us15, digits = 3))
+```
+
+
+
+**Oppgave 5**\
+Gå ut fra at en økonomis totale produksjon (BNP) kan beskrives ved bruk av produksjonsfunksjonen:
+
+$Y(t) = A(t)*K(t)^\alpha*L(t)^\beta*R(t)^\gamma$\
+der $\alpha = 0.4,\beta = 0.5$ og $\gamma = 0.1$.
+
+Oppgave 5a:\
+Med hvor mange prosent endres $Y$ dersom $K$ øker med 1$\%$, ceteris paribus? Dette kan vi lese direkte av eksponentene. Hvis $K$ øker med 1$\%$, vil $Y$ øke med 0.4$\%$.
+
+Oppgave 5b:\
+Hvor mange prosent endres $Y$ med hvis alle produksjonsfaktorene ($K,L,R$) endres med 10$\%$? Vi kan også lese dette direkte ut av produktfunksjonen. Når summen av ekspnentene er 1, har vi konstant skalautbytte. Dette betyr at når alle produksjonsfaktorene ($K,L,R$) endres med 10$\%$, vil $Y$ endres med 10$\%$.
