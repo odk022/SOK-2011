@@ -2,7 +2,6 @@
 title: "Seminar_1"
 author: "Oddmund Klæboe"
 format: html
-editor: visual
 ---
 
 ```{r}
@@ -178,12 +177,12 @@ temp
 print("Total incomes are:") 
 ```
 
-
 ```{r}
 total_income <- temp[, "Mean Income"] * 
   temp[, "Population"]  
 total_income
 ```
+
 ```{r}
 # Pick the deciles (Columns 3 to 12) in Row 1 (China, 1985)
 decs_c85 <- unlist(temp[1, 3:12])
@@ -198,6 +197,7 @@ total_inc <- 10 * unlist(temp[1, "Mean Income"])
 cum_inc_share_c85 = cumsum(decs_c85) / total_inc
 cum_inc_share_c85
 ```
+
 ```{r}
 # For China, 2015  
 # Go to Row 2 (China, 2015)
@@ -263,7 +263,8 @@ legend("topleft", lty = 2:1, lwd = 2, cex = 1.2, legend =
 
 ```
 
-**GINI-koeffisienter**  
+**GINI-koeffisienter**
+
 ```{r}
 g_c85 <- Gini(decs_c85)
 g_c15 <- Gini(decs_c15)
@@ -281,7 +282,9 @@ paste("United States - 1985: ", round(g_us85, 2),
   ", 2015: ", round(g_us15, 2))
   
 ```
+
 Setter inn Gini i plottet:
+
 ```{r}
 plot(cum_inc_share_c85, type = "l", col = "blue", lty = 2, 
   lwd = 2, xlab = "Deciles", 
@@ -311,16 +314,78 @@ text(5.7, 0.38, round(g_us85, digits = 3))
 text(6.4, 0.3, round(g_us15, digits = 3))
 ```
 
-
-
 **Oppgave 5**\
 Gå ut fra at en økonomis totale produksjon (BNP) kan beskrives ved bruk av produksjonsfunksjonen:
 
-$Y(t) = A(t)*K(t)^\alpha*L(t)^\beta*R(t)^\gamma$\
+$Y(t) = A(t)\cdot K(t)^\alpha\cdot L(t)^\beta\cdot R(t)^\gamma$\
 der $\alpha = 0.4,\beta = 0.5$ og $\gamma = 0.1$.
 
 Oppgave 5a:\
 Med hvor mange prosent endres $Y$ dersom $K$ øker med 1$\%$, ceteris paribus? Dette kan vi lese direkte av eksponentene. Hvis $K$ øker med 1$\%$, vil $Y$ øke med 0.4$\%$.
 
+Matematisk:\
+Vi vil finne: $\displaystyle \frac{\partial Y}{\partial K}\cdot \frac{K}{Y}$\
+
+To måter:\
+1. Derivere med hensyn på $K$ og deretter dele på $\displaystyle\frac{K}{Y}$:\  
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha\cdot A(t)\cdot K(t)^{\alpha-1}\cdot L(t)^\beta\cdot R(t)^\gamma\cdot\frac{K(t)}{Y(t)}$  
+
+Vi trekker ut $\displaystyle\ K(t)^{-1}$ og får følgende:  
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha\cdot A(t)\cdot K(t)^{\alpha}\cdot L(t)^\beta\cdot R(t)^\gamma\cdot\frac{K(t)}{Y(t)}\cdot\frac{1}{K(t)}$  
+
+Vi setter inn for $\displaystyle\ Y(t)$:  
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha\cdot Y(t)\cdot\frac{K(t)}{Y(t)}\cdot\frac{1}{K(t)}$  
+
+som gir at:  
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha$  
+
+2. Ta logaritmen av uttrykket og deretter derivere med hensyn på $K$:  
+
+$\displaystyle ln(Y) = ln(A)+ \alpha\cdot\ln(K)+ \beta\cdot\ln(L)+ \gamma\cdot\ln(R)$  
+
+Deriverer med hensyn på $K$ på begge sider:  
+
+$\displaystyle \frac{1}{Y}\cdot\frac{\partial Y}{\partial K} = \alpha\cdot \frac{1}{K}\cdot1$  
+
+Ganger på begger sider med $K$ og får:  
+
+$\displaystyle \frac{\partial Y}{\partial K}\cdot \frac{K}{Y} = \alpha$ \ 
+
+
+
 Oppgave 5b:\
 Hvor mange prosent endres $Y$ med hvis alle produksjonsfaktorene ($K,L,R$) endres med 10$\%$? Vi kan også lese dette direkte ut av produktfunksjonen. Når summen av ekspnentene er 1, har vi konstant skalautbytte. Dette betyr at når alle produksjonsfaktorene ($K,L,R$) endres med 10$\%$, vil $Y$ endres med 10$\%$.
+
+Matematisk:
+Lager en ny variabel $s$ for å illustrere endringen. I starten er $s=1$. Dersom alle produksjonsfaktorer øker med 10$\%$, så er $s=1.1$.  
+
+$\displaystyle Y(t) = A(t)\cdot(s\cdot K(t))^\alpha\cdot(s\cdot L(t))^\beta\cdot(s\cdot R(t))^\gamma$  
+
+Vi samler leddene:  
+
+$\displaystyle Y(t) = A(t)\cdot K(t)^\alpha\cdot L(t)^\beta\cdot R(t)^\gamma\cdot s^{\alpha+\beta+\gamma}$  
+
+Vi vil finne:  
+
+$\displaystyle \frac{\partial Y}{\partial s}\cdot \frac{s}{Y}$\   
+
+Tar logaritmen på begge sider:  
+
+$\displaystyle ln(Y) = ln(A)+ \alpha\cdot\ln(K)+ \beta\cdot\ln(L)+ \gamma\cdot\ln(R) +(\alpha+\beta+\gamma)\cdot\ln(s)$  
+
+Deriverer med hensyn på s:  
+
+$\displaystyle \frac{\partial Y}{\partial K} \cdot\frac{1}{Y}\ = (\alpha+\beta+\gamma) \cdot\frac{1}{s}$  
+
+Ganger med $s$ på begge sider og får:  
+
+$\displaystyle \frac{\partial Y}{\partial K} \cdot\frac{s}{Y}\ = \alpha+\beta+\gamma$   
+
+Vi ser at endringen i $Y(t)$ når alle faktorene endres like mye er lik summen av eksponentene. Når summen er lik 1, har vi konstant skalautbytte.
+
+
+
