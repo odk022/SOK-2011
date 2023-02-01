@@ -1,0 +1,34 @@
+---
+title: "Seminar_2"
+format: pdf
+editor: visual
+---
+
+```{r}
+
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(plyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(WDI))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(countrycode))
+suppressPackageStartupMessages(library(scales))
+suppressPackageStartupMessages(library(tidyr))
+```
+
+```{r}
+
+```
+
+```{r}
+df_gdp0<-WDI(
+  country = "all",
+  indicator = c('gdppc'="NY.GDP.PCAP.KD", 'poptot'="SP.POP.TOTL"),  
+  start = 1980,
+  end = 2019,
+  extra = TRUE,
+  cache = NULL,
+  latest = NULL,
+  language = "en"
+)
+```
