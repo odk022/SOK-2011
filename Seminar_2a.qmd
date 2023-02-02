@@ -1,0 +1,169 @@
+---
+title: "sok-2011-Seminar 2"
+author: "Oddmund"
+format: pdf
+editor: visual
+---
+
+```{r}
+getwd()
+
+```
+
+
+```{r}
+#| warning: false 
+#| echo: false
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(plyr))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(WDI))
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(countrycode))
+suppressPackageStartupMessages(library(scales))
+suppressPackageStartupMessages(library(tidyr))
+```
+
+
+```{r}
+#| echo: false
+df_gdp0<-WDI(
+  country = "all",
+  indicator = c('gdppc'="NY.GDP.PCAP.KD", 'poptot'="SP.POP.TOTL"),  
+  start = 1980,
+  end = 2019,
+  extra = TRUE,
+  cache = NULL,
+  latest = NULL,
+  language = "en"
+)
+
+# Ta vekk "land" som ikke er land
+df_gdp0 <- df_gdp0  %>%  filter(iso2c!='1A' & iso2c !='1W' & iso2c != '4E' & iso2c != '7E' & iso2c !='8S'
+                                         & iso2c !='B8' & iso2c !='EU' & iso2c !='F1' & iso2c !='OE' & iso2c !='S1' & iso2c !='S2' & iso2c !="S3" 
+                                         & iso2c !='S4' & iso2c !='T2' & iso2c !='T3' & iso2c !='T4' & iso2c !='T5' & iso2c !='T6' & iso2c !='T7' 
+                                         & iso2c !='V1' & iso2c !='V2' & iso2c !='V3' & iso2c !='V4' & iso2c !='XC' & iso2c !='XD' & iso2c !='XE' 
+                                         & iso2c !='XF' & iso2c !='XG' & iso2c !='XH' & iso2c !='XI' & iso2c !='XJ' & iso2c !='XL' & iso2c !='XM' 
+                                         & iso2c !='XN' & iso2c !='XO' & iso2c !='XP' & iso2c !='XQ' & iso2c !='XT' & iso2c !='XU' & iso2c !='Z4' 
+                                         & iso2c !='Z7' & iso2c !='ZF'& iso2c !='ZG'  & iso2c !='ZH' & iso2c !='ZI'  & iso2c !='ZJ'  & iso2c !='ZQ'  
+                                         & iso2c !='ZT'  & iso2c !='Z7')  %>% arrange(iso3c, year) 
+
+# Velg relevante variabler
+df_gdp1 <- subset(df_gdp0, select = c(country, region, income, iso2c, iso3c, year, gdppc, poptot) ) %>%  arrange(iso3c, year)
+df_gdp2 <-  df_gdp1 %>% mutate_all(na_if,"") # Identifisere missing values
+df_gdp3 <- df_gdp2[complete.cases( df_gdp1$gdppc, df_gdp1$iso3c),] #Ta vekk rader med missing values
+df_gdp3 = df_gdp3  %>%  
+  mutate(year = as.numeric(year)) # Se til at år er numerisk
+
+# Ta vekk land med flere verdier for et og samme år
+df_gdp4 <- df_gdp3[!duplicated(df_gdp2[c("iso3c", "year", max("gdppc"))]), ]  %>%  arrange(iso3c, year) 
+
+# Lage en variabel som måler BNP per innbygger i år "null" (1980)
+df_gdp5  <- df_gdp4 %>%  arrange(iso3c, year) %>% group_by(iso3c) %>% #keep the first observation for gdp pc (Y0)
+  slice(1) %>%
+  ungroup()
+df_gdp1980 = subset(df_gdp5, select = -c(year, poptot) ) #Droppe unødvendige variabler
+df_gdp1980 <-   plyr:: rename(df_gdp1980,c("gdppc" = "gdppc0")) #Gi variabeln et nytt navns lik at vi kan identifisere det i det store datasetet 
+head(df_gdp1980)
+```
+```{r}
+#| warning: false 
+#| echo: false
+df_gdp <- left_join(df_gdp4,df_gdp1980, by=c("country", "iso2c", "iso3c", "region", "income"))
+head(df_gdp)
+```
+
+```{r}
+#| warning: false 
+#| echo: false
+df_growth0 = df_gdp %>%  
+  arrange(iso3c, year) %>%
+  ddply("iso3c",transform,
+        gdpgrowth=c(NA,exp(diff(log(gdppc)))-1)*100) %>%  # Beregne årlig vekstrate
+  mutate(gdpgrowth = as.numeric(gdpgrowth, na.rm = TRUE)) %>% 
+  ddply("iso3c",transform,
+        avg_gdpgrowth=mean(gdpgrowth, na.rm = TRUE)) # Beregne gjennomosnittlig vekstrate i perioden 1980-2019
+
+head(df_growth0)
+```
+```{r}
+#| warning: false 
+#| echo: false
+df_growth1 <- df_growth0[complete.cases( df_growth0$country, df_growth0$income, df_growth0$iso3c, df_growth0$avg_gdpgrowth),] #TA vekk land med missing observations
+df_growth <- subset(df_growth1, select = c("country",  "region", "income", "iso3c", "iso2c","year", "poptot", "gdppc", "gdppc0", "avg_gdpgrowth"))
+
+# Lage et dataset med en observasjon per land 
+df_growth2019  <- df_growth %>%  arrange(iso3c, year) %>% group_by(iso3c) %>% #Behold den siste observasjonen (2019) for hvert land
+  slice(n()) %>%
+  ungroup()
+head(df_growth2019)
+
+# Lage dataset for land i ulike inntektsgrupper
+df_growth_high<-subset(df_growth2019, income== "High income")
+df_growth_mid<-subset(df_growth2019, income== "Upper middle income")
+df_high_mid<- rbind(df_growth_high, df_growth_mid)
+```
+## **Oppgave 1**  
+
+Lag 1 graf for land i kategorien “High income” og “Upper middle income”, og en graf for alle land i verden. Grafen skal vise sammenhengen mellom BNP per innbygger i 1980 og gjennomsnittlig årlig vekstrate i BNP per innbygger i perioden 1980-2019. Ser prediksjonen fra Solow-modellen ut å være riktig?
+
+## **Løsning**  
+
+### **Graf 1: Inntekter i klassene “High income” og “Upper middle income”,**
+
+```{r}
+#| warning: false 
+#| echo: false
+#income_h_m<- df_growth2019 %>% 
+ # filter(income %in% c("High income","Upper middle income")) 
+
+#Begrenset plott:  
+# ggplot(income_h_m, aes(x=gdppc0, y= avg_gdpgrowth)) +
+#   geom_point() +
+#     xlab("BNP per innbygger i 1980") +
+#     ylab("Årlig vekstrate") +
+#     ggtitle("Sammenhengen mellom BNP per innbygger og vekstrate i BNP")
+  
+#Løsning:
+
+plot1 <- ggplot(df_high_mid, aes(x = gdppc0 , y = avg_gdpgrowth, na.rm = TRUE)) +
+  xlab("BNP per innbygger 1980") + 
+  ylab("Gjennomsnittlig vekstrate 1980-2019") + 
+  geom_text(aes(label=iso3c),size=3)+
+  scale_x_continuous(labels = dollar)  + #
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(fill = 'white'))+
+  scale_x_continuous(trans = 'log2', labels = dollar, breaks=c(500, 2000, 8000, 32000, 120000)) +
+  scale_y_continuous(breaks=c(-5, -2.5, 0, 2.5, 5, 7.5,10 ))+
+  labs(title="Rike land")+
+  theme_classic()
+plot1
+  
+```
+### **Graf 2: Alle land og alle inntektsklasser**
+
+```{r}
+#| warning: false 
+#| echo: false
+# Plott med alle land
+# ggplot(df_growth2019, aes(x=gdppc0, y= avg_gdpgrowth, group=income)) +
+#   geom_point() +
+#     xlab("BNP per innbygger i 1980") +
+#     ylab("Årlig vekstrate") +
+#     ggtitle("Sammenhengen mellom BNP per innbygger og vekstrate i BNP")
+
+plot1 <- ggplot(df_growth2019, aes(x = gdppc0 , y = avg_gdpgrowth, na.rm = TRUE)) +
+  xlab("BNP per innbygger 1980") + 
+  ylab("Gjennomsnittlig vekstrate 1980-2019") + 
+  geom_text(aes(label=iso3c),size=3)+
+  scale_x_continuous(labels = dollar)  + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_rect(fill = 'white'))+
+  scale_x_continuous(trans = 'log2', labels = dollar, breaks=c(500, 2000, 8000, 32000, 120000)) +
+  scale_y_continuous(breaks=c(-5, -2.5, 0, 2.5, 5, 7.5,10 ))+
+  labs(title="Alle land")+
+  theme_classic()
+plot1
+
+```
+
+
+
