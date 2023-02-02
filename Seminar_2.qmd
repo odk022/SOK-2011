@@ -17,7 +17,6 @@ suppressPackageStartupMessages(library(scales))
 suppressPackageStartupMessages(library(tidyr))
 ```
 
-
 ```{r}
 #| echo: false
 df_gdp0<-WDI(
@@ -59,6 +58,7 @@ df_gdp1980 = subset(df_gdp5, select = -c(year, poptot) ) #Droppe unødvendige va
 df_gdp1980 <-   plyr:: rename(df_gdp1980,c("gdppc" = "gdppc0")) #Gi variabeln et nytt navns lik at vi kan identifisere det i det store datasetet 
 head(df_gdp1980)
 ```
+
 ```{r}
 #| warning: false 
 #| echo: false
@@ -79,6 +79,7 @@ df_growth0 = df_gdp %>%
 
 head(df_growth0)
 ```
+
 ```{r}
 #| warning: false 
 #| echo: false
@@ -96,13 +97,14 @@ df_growth_high<-subset(df_growth2019, income== "High income")
 df_growth_mid<-subset(df_growth2019, income== "Upper middle income")
 df_high_mid<- rbind(df_growth_high, df_growth_mid)
 ```
-## **Oppgave 1**  
 
-Lag 1 graf for land i kategorien “High income” og “Upper middle income”, og en graf for alle land i verden. Grafen skal vise sammenhengen mellom BNP per innbygger i 1980 og gjennomsnittlig årlig vekstrate i BNP per innbygger i perioden 1980-2019. Ser prediksjonen fra Solow-modellen ut å være riktig?
+## **Oppgave 1**
 
-## **Løsning**  
+Lag 1 graf for land i kategorien "High income" og "Upper middle income", og en graf for alle land i verden. Grafen skal vise sammenhengen mellom BNP per innbygger i 1980 og gjennomsnittlig årlig vekstrate i BNP per innbygger i perioden 1980-2019. Ser prediksjonen fra Solow-modellen ut å være riktig?
 
-### **Graf 1: Inntekter i klassene “High income” og “Upper middle income”,**
+## **Løsning**
+
+### **Graf 1: Inntekter i klassene "High income" og "Upper middle income",**
 
 ```{r}
 #| warning: false 
@@ -132,6 +134,7 @@ plot1 <- ggplot(df_high_mid, aes(x = gdppc0 , y = avg_gdpgrowth, na.rm = TRUE)) 
 plot1
   
 ```
+
 ### **Graf 2: Alle land og alle inntektsklasser**
 
 ```{r}
@@ -157,6 +160,3 @@ plot1 <- ggplot(df_growth2019, aes(x = gdppc0 , y = avg_gdpgrowth, na.rm = TRUE)
 plot1
 
 ```
-
-
-
