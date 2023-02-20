@@ -18,6 +18,7 @@ format:
       - left=30mm
   docx: default
 ---
+
 ```{r}
 #| label: load-pkgs
 #| code-summary: "Packages"
@@ -28,7 +29,328 @@ suppressPackageStartupMessages(library(dplyr))
 suppressPackageStartupMessages(library(plyr))
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(countrycode))
+knitr::opts_chunk$set(fig.pos = "H") # holder figurene på rett plass
 ```
+
+## Introduksjon
+
+### Beskriv hva du skal gjøre i oppgaven (forskningsspørsmålet)
+
+-   Analyse av bestemmelsesfaktorer for materiell velferd og økonomisk vekst
+-   Beskriv hva du skal gjøre i oppgaven (forskningsspørsmålet)
+
+### Beskriv hvorfor det er viktig å se på/analysere dette
+
+-   Motivere forskningsspørsmålet / søkelyset i oppgaven
+-   Hvorfor er nivå på produksjon per innbygger, og vekst i produksjon per innbygger viktig å studere?
+-   Se kapittel 1 i Hess og forelesning 1 -- 2.
+
+### Beskriv (kortfattet) hvordan du skal analysere temaet (hvordan du vil prøve å besvare forskningsspørsmålet)
+
+Jeg vil i analysen benytte meg av Solow-modellen med teknologisk utvikling og naturressurser. Denne produktfunksjonen kan generelt framstilles på følgende måte:
+
+(1) $Y(t) = A(t)\cdot F(\underline K(t),\underline L(t),\underline R(t))$ der
+
+(2) Effektiv mengde kapital er: $\underline K(t) = q_K\cdot K(t)$
+
+(3) Effektiv mengde arbeidskraft er: $\underline L(t) = q_L\cdot L(t)$
+
+(4) Effektiv mengde ressurser er: $\underline R(t) = q_R\cdot R(t)$
+
+og $q_K, q_L$ og $q_R$ er kvalitetsindeks for de tre innsatsfaktorene.
+
+Denne produktfunksjonen kan spesifiseres med en Cobb-Douglas produktfunksjon på følgende måte:
+
+(5) $Y(t) = A(t)\cdot(q_K\cdot K(t))^\alpha\cdot(q_L\cdot L(t))^\beta\cdot(q_R\cdot R(t))^\gamma$
+
+$0 < \alpha+\beta+\gamma < 1$ og $\alpha+\beta+\gamma = 1$
+
+**Følgende sammenhenger er definert:**
+
+(6) Total faktorproduktivitet: $A(t) = A_0\cdot e^{g_A\cdot t}$, vekstrate:${g_A}$
+
+(7) Arbeidskraften: $L(t) = L_0\cdot e^{n\cdot t}$, vekstrate: ${n}$
+
+(8) Naturressurser: $R(t) = R_0\cdot e^{-u\cdot t}$, vekstrate: ${-u}$
+
+(9) Kvalitetsindeks til kapital: $q_K(t)= e^{j\cdot t}$, vekstrate: ${j}$
+
+(10) Kvalitetsindeks til arbeid: $q_L(t)= e^{m\cdot t}$, vekstrate: ${m}$
+
+(11) Kvalitetsindeks til naturressurser: $q_R(t)= e^{h\cdot t}$, vekstrate: ${h}$,\
+     $0\geq h\geq0$
+
+-   Teoretisk analyse
+-   Empirisk analyse: Regresjonsanalyse av data fra World Development Indicators fra Verdensbanken.Hva bestemmer nivå på og vekst i materiell velferd?
+
+## Teori: Solow-modellen
+
+Vekstmodellene til Solow er av ulik kompleksitet fra en enkel modell med kun produksjonsfaktorene kapital og arbeid til den mest avanserte som også har med total faktorproduktivitet og naturressurser. Jeg vil starte med å beskrive den enkle modellen og resultatene vi kommer fram til.
+
+### Solow bas modellen
+
+Produksjonen($Y$) skjer ved hjelp av to innsatsfaktor, Arbeidskraft($L$) og Kapital($K$). Produktfunksjonen kan skrives generelt som $Y(t)=F(K(t),L(t))$.
+
+#### Antakelser i modellen:
+
+-   Alle bedrifter produserer et homogent gode\
+
+-   Det er fullkommen konkurranse. Dette innebærer at profitten er lik 0,altså at $\Pi=F(K,L - w\cdot L-r\cdot K=0$ der $w$ er lønn og $r$ er avkastning til kapitalen.\
+
+-   Produksjonen har konstant skalautbytte. Dette innebærer at hvis innsatsfaktorene øker med 1 $\%$, vil produksjonen øke med 1$\%$.
+
+-   Produksjonsfaktorene har positiv, men avtakende grenseproduktivitet. Dette betyr at:\
+    \
+    $\frac{\partial Y(t)}{\partial K(t)}= \frac{\partial F(K(t),L(t))}{\partial K(t)}> 0$
+
+og at:
+
+$\frac{\partial^2 Y(t)}{\partial K(t)^2}= \frac{\partial^2 F(K(t),L(t))}{\partial K(t)^2}< 0$\
+\
+Det samme gjelder for L(t):
+
+$\frac{\partial Y(t)}{\partial L(t)}= \frac{\partial F(K(t),L(t))}{\partial L(t)}> 0$ og at:
+
+$\frac{\partial^2 Y(t)}{\partial L(t)^2}= \frac{\partial^2 F(K(t),L(t))}{\partial L(t)^2}< 0$\
+Dette kan framstilles grafisk på denne måten:
+
+![Grenseproduktivitet](Grenseproduktivitet.png){fig-align="left"}
+
+-   Alle i befolkningen er i arbeid $L=P$
+
+-   Veksten i befolkningen skjer med konstant, og eksogent gitt rate $n: L(t)=L_0\cdot e^{n \cdot t}$  
+
+- Netto sparerate er konstant lik en andel $s$ av total produksjon $Y(t)$.  
+$I(t)=s\cdot Y(t)$ Et annet uttrykk for det samme er endringer i kapitalen over tid:  
+${\frac{\partial K(t)}{\partial t}}$. 
+
+
+
+
+### Beskriv formålet med Solow-modellen
+
+-   Hva prøver modellen å få til?\
+
+
+### Bruk modellen for å ta fram teoretiske prediksjoner for bestemmelsesfaktorer for nivå på og vekst i materiell velferd.
+
+F.eks.
+
+-   Grafisk analyse av endringer i sparerate på nivå på BNP per innbygger i Solow-modellen BAS (må være nøye med å si hvilke antakelser som ligger til grunn)
+
+Definisjon av langsiktig likevekt (Steady-state): All tilpasning som skjer automatisk, har skjedd Enten stabil nivå på BNP per arbeider, eller stabil vekstrate i BNP per arbeider
+
+**Hva bestemmer nivået på BNP per arbeider i langsiktig likevekt**
+
+**Grafisk gjennomgang**\
+Solow-modellen BAS: Produksjonen skjer ved hjelp av to innsatsfaktor, Arbeidskraft(L) og Kapital(K).
+
+Generell produktfunksjon: $Y(t)=F(K(t),L(t))$\
+For å finne produksjon per arbeider deler vi på L:
+
+$y=\frac {Y(t)}{L(t)}= \frac {F(K(t),L(t))} {L(t)}$
+
+$y= F(\frac {K(t)}{L(t)},1)$ → $y=F(\frac {K(t)}{L(t)})= f(k)$
+
+Vi ser av uttrykket at produksjon per arbeider($y$) er lik kapital($K$) per arbeider($L$). Dette forholdet ($\frac {K(t)}{L(t)}$) kaller vi kapitalintensiteten og benevner det $k$.
+
+For en spesifikk produktfunksjon finner vi følgende:\
+$Y(t)= K(t)^\alpha\cdot L(t)^{1-\alpha}$
+
+$0<\alpha<1$
+
+$y=\frac {Y(t)}{L(t)}= \frac {K(t)^\alpha\cdot L(t)^{1-\alpha}} {L(t)}=K(t)^\alpha\cdot L(t)^{1-\alpha-1}=(\frac {K(t)}{L(t)})^\alpha= k^\alpha$\
+\
+La oss se på hvordan produksjonen per innbygger($y(t)$) endres når kapitalintensiteten($k(t)$) endres:
+
+**Generell produktfunksjon**\
+Vi deriverer $y(t)$:
+
+$\frac{\partial y(t)}{\partial k(t)}= \frac{\partial f(k(t))}{\partial k(t)}> 0$
+
+Dette sier at grenseproduktiviteten til kapitalintensiviteten er positiv. Dette betyr at jo mer kapital vi har i forhold til arbeid, jo mer vil produksjonen per innbygger øke.\
+Vi ønsker å se hvordan produksjonen per innbygger øker når $k$ øker, og deriverer en gang til:
+
+$\frac{\partial^2 y(t)}{\partial k(t)^2}= \frac{\partial^2 f(k(t))}{\partial k(t)^2}< 0$
+
+Dette sier at når kapitalintensiviteten øker, vil effekten den har på produksjon per innbygger bli stadig mindre.
+
+\
+**Spesifikk produkfunksjon**\
+$y(t)= k(t)^\alpha$
+
+$\frac{\partial y(t)}{\partial k(t)}= \alpha \cdot k(t)^{\alpha -1}>0$\
+som er positiv fordi $\alpha > 0$.
+
+Produktfunksjonen er avtakende når $k$ øker:
+
+$\frac{\partial^2 y(t)}{\partial k(t)^2}=\alpha(\alpha-1)\cdot k(t)^{\alpha-2}<0$\
+\
+Vi har altså funnet at produksjonen per innbygger øker med økende kapitalintensivitet, men til en avtakende rate.
+
+Videre i analysen velger jeg å bruke den spesifikke funksjonen for produksjonen per innbygger.\
+\
+**Vekst i produksjonen per innbygger**\
+For å finne ut dette må vi se på hvordan $y(t)$ endrer seg når tiden forløper. Vi deriverer derfor det spesifikke funksjonsuttrykket for $y(t)$ med hensyn på $t$ og får:
+
+$\frac{\partial y(t)}{\partial t}= \alpha \cdot k^{\alpha-1} \cdot \frac{\partial k(t)}{\partial t}$
+
+Vi deler dette på $y(t)$ for å få veksten i produksjonen pr innbygger:\
+$\frac{\frac{\partial y(t)}{\partial t}}{y(t)}= \frac{\alpha \cdot k^{\alpha-1}}{k(t)^\alpha} \cdot \frac{\partial k(t)}{\partial t} = {\alpha \cdot k^{\alpha-1-\alpha}} \cdot \frac{\partial k(t)}{\partial t}= \alpha \cdot {\frac 1{k(t)}\cdot \frac{\partial k(t)}{\partial t}}$
+
+Vi setter vekstraten i $y(t)= g_y=\frac{\frac{\partial y(t)}{\partial t}}{y(t)}$ og vekstraten til $k(t)=g_k={\frac 1{k(t)}\cdot \frac{\partial k(t)}{\partial t}}$
+
+Vi får da at:
+
+$g_y=\alpha \cdot g_k$
+
+som betyr at vekstraten i produksjonen per innbygger er lik produksjonselastisiteten til kapital ganget med veksten i kapitalintensiteten. Vi ser altså at for produksjonselastisitet vil det være en klar sammenheng mellom veksten i kapitalintensiteten og veksten i produksjon per innbygger. Når vi samtidig vet at grenseproduktiviteten til kapitalintensisiteten er positiv og avtakende, vil også effekten av vekst i kapitalen være avtakende.
+
+**Kapital per arbeider(innbygger)**\
+Vi ønsker å finne ut hvordan kapitalintensiteten utvikler seg over tid og tar utgangspunkt i $k(t)= {\frac {K(t)}{L(t)}}$ som jeg først logaritmerer og deretter deriverer med hensyn på $t$:
+
+$ln(k(t))= ln({\frac {K(t)}{L(t)}})$
+
+$ln(k(t))= ln(K(t)) - ln(L(t))$\
+Deriverer med hensyn på t:
+
+${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}={\frac 1{K(t)}\cdot \frac{\partial K(t)}{\partial t}}-{\frac 1{L(t)}\cdot \frac{\partial L(t)}{\partial t}}$
+
+Vi ser at veksten i kapitalintensiviteten avhenger av veksten i kapitalen og veksten i arbeidskraften.
+
+Vi har tidligere definert at
+
+Arbeidskraften: $L(t) = L_0\cdot e^{n\cdot t}$
+
+Vekstraten vil være: ${\frac{\partial L(t)}{\partial t}}=n$
+
+Vi har også at\
+${\frac{\partial K(t)}{\partial t}}=I(t)=s\cdot Y(t)$,
+
+altså at kapitalens utvikling over tid er det samme som investeringene som igjen er definert som andel av total produksjon, der $s$ er spareraten.\
+Vi setter inn for disse:
+
+${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}={\frac 1{K(t)}\cdot s \cdot Y(t)-n}$
+
+Ganger med $\frac 1 {L(t)}$ oppe og nede og får
+
+${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}=s \cdot\frac {\frac {Y(t)}{L(t)}}{\frac {K(t)}{L(t)}}-n$
+
+og får at:
+
+${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}=s \cdot\frac {y(t)}{k(t)}-n$
+
+Ganger med $k(t)$ på begge sider som da gir at:
+
+${\frac{\partial k(t)}{\partial t}}=s \cdot y(t)-n \cdot k(t)$\
+\
+Vi ser at utviklingen av kapitalintensiteten er avhengig av forholdet mellom faktiske nettoinvesteringer $s \cdot y(t)$ og nødvendige investeringer for å erstatte arbeidere med kapital $n \cdot k(t)$.
+
+Kapitalintensiteten vil øke hvis de faktiske investeringene er større enn de som er nødvendig for å erstatte arbeidskraft og da vil også produksjonen per innbygger øke.
+
+Kapitalintensiviteten vil avta hvis de faktiske investeringene er mindre enn det som er nødvendig for å erstatte arbeidskraft. Da vil også produksjonen per innbygger avta.
+
+Figuren viser bevegelsen mot en steady state likevekt.\
+Forklare bevegelsen mot likevekt
+
+![Solow BAS steady-state](Solow%20BAS%20steady-state.png)
+
+```{r}
+#| label: Solow-bas
+
+# tegn en enkel produktfunksjon med pakken mosaic
+# x er kapitalintensitet, y er produksjon per arbeider.
+
+library(mosaic)
+# plot y=x^.3, blå kurve
+ # anta teknologisk fremgang som øker A til 4
+   #plot y=4*x^.5, rød kurve
+ # A=2
+ # plotFun((A*(x**.5)) ~ x, x.lim = range(0,10), A=1, main="Solow bas",
+ #        xlab=list(label="k", cex=1.2),
+ #          ylab=list(label="y", cex=1.2), ylim=c(0,15), col="blue") +
+ #  # A(B)=4
+ # plotFun((B*(x**.7) ) ~ x, x.lim = range(0,10), B=1,
+ #           xlab=list(label="Arbeidskraft", cex=1.2),
+ #           ylab=list(label="Produksjon", cex=1.2), ylim=c(0,15), col="red") +
+ # # Sparerate
+ # plotFun((C*x) ~ x, C=2, col="black")
+
+
+```
+
+-   Matematisk analyse av endringer i humankapital, teknologi mm på vekstraten i BNP per innbygger i steady state.\
+    \
+
+## Metode og data
+
+### Data
+
+#### Beskriv datakilden du vil bruke til den empiriske analysen
+
+-   World Development Indicators -- et datasett som er satt sammen av Verdensbanken\
+
+-   Forklare (kortfattet) hva datasettet inneholder (se: https://datatopics.worldbank.org/worlddevelopment-indicators/. Du kan lese mer under hvert tema.)
+
+-   Beskriv at du har brukt pakken «wdi» i Rstudio for å få tilgang til data.
+
+#### Beskriv ditt utvalg
+
+-   Hvilke variabler har du valgt å ta med i analysen? Forklare variablene i ord, ikke bare navnet på variablene.\
+-   Hvilken tidsperiode analyserer du?\
+-   Hvordan har du valgt de land du har med i analysen?
+
+### Metode
+
+#### Beskriv metoden du vil bruke for å analysere data
+
+-   Evaluere korrelasjoner mellom de teoretisk predikterte bestemmelsesfaktorene for økonomisk vekst, og nivå på økonomisk vekst ved bruk av:
+    -   Deskriptiv analyse
+    -   Multivariat regresjonsanalyse: Minste kvadratmetoden (Ordinary Least Squares)
+
+#### Sett opp en ligning som viser den tenkte sammenhengen mellom variablene
+
+-   Forklare hva de ulike delene i ligningen beskriver -- Forklare hvordan du vil tolke resultatene (f eks. krav på signifikansnivå) -- Dersom du tenker at du vil gjennomføre en robusthetsanalyse, forklare hvilken
+
+Gå ut fra at en økonomis totale produksjon (BNP) kan beskrives ved bruk av produksjonsfunksjonen:
+
+$Y(t) = A(t)\cdot K(t)^\alpha\cdot L(t)^\beta\cdot R(t)^\gamma$\
+der $\alpha = 0.4,\beta = 0.5$ og $\gamma = 0.1$.
+
+Oppgave 5a:\
+Med hvor mange prosent endres $Y$ dersom $K$ øker med 1$\%$, ceteris paribus? Dette kan vi lese direkte av eksponentene. Hvis $K$ øker med 1$\%$, vil $Y$ øke med 0.4$\%$.
+
+Matematisk:\
+Vi vil finne: $\displaystyle \frac{\partial Y}{\partial K}\cdot \frac{K}{Y}$\
+
+To måter:\
+1. Derivere med hensyn på $K$ og deretter dele på $\displaystyle\frac{K}{Y}$: 
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha\cdot A(t)\cdot K(t)^{\alpha-1}\cdot L(t)^\beta\cdot R(t)^\gamma\cdot\frac{K(t)}{Y(t)}$
+
+Vi trekker ut $\displaystyle\ K(t)^{-1}$ og får følgende:
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha\cdot A(t)\cdot K(t)^{\alpha}\cdot L(t)^\beta\cdot R(t)^\gamma\cdot\frac{K(t)}{Y(t)}\cdot\frac{1}{K(t)}$
+
+Vi setter inn for $\displaystyle\ Y(t)$:
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha\cdot Y(t)\cdot\frac{K(t)}{Y(t)}\cdot\frac{1}{K(t)}$
+
+som gir at:
+
+$\displaystyle \frac{\partial Y}{\partial K} = \alpha$
+
+2.  Ta logaritmen av uttrykket og deretter derivere med hensyn på $K$:
+
+$\displaystyle ln(Y) = ln(A)+ \alpha\cdot\ln(K)+ \beta\cdot\ln(L)+ \gamma\cdot\ln(R)$
+
+Deriverer med hensyn på $K$ på begge sider:
+
+$\displaystyle \frac{1}{Y}\cdot\frac{\partial Y}{\partial K} = \alpha\cdot \frac{1}{K}\cdot1$
+
+Ganger på begger sider med $K$ og får:
+
+$\displaystyle \frac{\partial Y}{\partial K}\cdot \frac{K}{Y} = \alpha$
 
 ```{r}
 #| label: variables-from-WDI
@@ -124,7 +446,6 @@ df_educ <- subset(df_educ, select = c(country, region, income, iso2c, iso3c, avg
 df_educ <- df_educ[!duplicated(df_educ[c("iso3c")]), ]  %>%  
   arrange(iso3c) 
 ```
-
 
 ```{r}
 #| label: sparerate
@@ -309,6 +630,7 @@ df_growth2019  <- df_growth %>%  arrange(iso3c, year) %>% group_by(iso3c) %>%
   ungroup()
 head(df_growth2019)
 ```
+
 ```{r}
 #| label: log-BNP_per_cap
 # Lag en variabel som er logaritmen av BNP per innbygger (enklere tolkning og presser sammen fordelingen)
@@ -317,3 +639,8 @@ df_growth2019$ln_gdppc<-log(df_growth2019$gdppc)
 df_growth2019$ln_gdppc0<-log(df_growth2019$gdppc0) 
 ```
 
+```{r}
+summary(df_growth2019)
+```
+
+## Referanser
