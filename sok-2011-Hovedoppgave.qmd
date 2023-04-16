@@ -3,12 +3,13 @@ title: "SOK-2011-mappeinnlevering 2a"
 author: "Kandidatnr 23"
 toc: true
 toc-title: Innhold
-toc-depth: 4
+toc-depth: 5
 number-sections: true
 execute: 
   warning: false
   echo: false
 highlight-style: pygments
+prefer-html: true
 format:
   html: 
     code-fold: true
@@ -665,18 +666,19 @@ Jeg har brukt data fra World Development Indicators som er en stor samling av da
 På bakgrunn av de matematiske utledningene er jeg kommet fram til at
 følgende likning kan være et estimat for hvilke faktorer som påvirker veksten i BNP i et land:
 
-$g_{y,i} = {\alpha} + {\beta_1} \cdot educ_i + {\beta_2} \cdot n_i + {\beta_3} \cdot p_i + {\beta_4}\cdot nsy_i  +  {\beta_5} \cdot nry_i + {\beta_6} \cdot gi_i  + {\beta_7} \cdot gx_i + {\beta_8} \cdot lnDPPC0_i + {\epsilon_i}$
+$g_{y,i} = {\alpha} + {\beta_1} \cdot educ_i + {\beta_2} \cdot n_i + {\beta_3} \cdot p_i + {\beta_4}\cdot nsy_i  +  {\beta_5} \cdot nry_i + {\beta_6} \cdot gi_i  + {\beta_7} \cdot lnDPPC0_i + {\beta_8} \cdot gx_i  + {\epsilon_i}$
 
 der $g_{y,i}$ er vekstraten i BNP i land nr $i$,  
 $educ_i$ er gjennomsnittlig antall år i skole i land nr $i$,  
 $n_i$ er gjennomsnittlig vekst i arbeidsstyrken i land nr $i$,  
 $p_i$ er gjennomsnittlig vekst i befolkningen i land nr $i$,  
-$nsy_i$ gjennomsnitlig nettosparing i land nr $i$,  
+$nsy_i$ gjennomsnittlig nettosparing i land nr $i$,  
 $nry_i$ gjennomsnittlig uttømming av naturressurser i land nr $i$,  
 $gi_i$ gjennomsnittlig årlig vekst i investeringene i land nr $i$,  
-$gx_i$ gjennomsnittlig vekstrate i eksport i land nr $i$,  
 $lnDPPC0_i$ BNP per innbygger i år 2000 i land nr $i$,  
-\
+$gx_i$ gjennomsnittlig vekstrate i eksport i land nr $i$.
+${\epsilon_i}$ er restledd 
+
 *Du vil analysere sammenhengen mellom vekstraten i BNP per innbygger og de forklarende variablene ved bruk av multippel linjær regresjonsanalyse. For å estimere modellen vil du bruke minste-kvadrat-metoden (OLS). Du trenger ikke å gå inn på detaljene i minste-kvadrat-metoden, men du må skrive at du har brukt denne metoden. I tillegg må du beskrive den ligning som du estimerer ved bruk av metoden.*
 
 *NB: det ser ut å finnes observasjoner i datamaterialet som har en stor innvirkning på resultatet ("outliers" eller "influential observations"). Du kan lese om hvordan vi kan identifisere disse her. I avsnitt 4.2 viser jeg et eksempel på hvordan du kan ta vekk disse observasjonene fra din analyse.*
@@ -727,12 +729,12 @@ Her er en oversikt over noen parametre for alle variablene i datasettet.
 ```{r}
 #| label: Deskriptiv statistikk
 
-knitr::kable(table_des[,2:6], caption = "Deskriptiv statistikk", col.names = c("N", "Gjennomsnitt","Standardavvik","Min", "Maks")) %>%
+knitr::kable(table_des[,2:6], caption = "Deskriptiv statistikk", col.names = c("N", "Gj.snitt","Standardavvik","Min", "Maks")) %>%
   column_spec(1,width = "5cm") %>% 
   kable_styling(bootstrap_options = c("striped")) 
 ```
 
-Datasettet består av 98 observasjoner i perioden 2000-2019....
+Datasettet består av 98 observasjoner i perioden 2000-2019 som dekker alle forhold som beskrives i Solowmodellen. I tillegg er det tatt med en eksportvariabel. 
 
 #### Grafisk oversikt over noen sammenhenger   
 *Avsnitt 4.1 skal også skal inneholde grafer som visualiserer korrelasjoner mellom nivå på og vekst i BNP per innbygger på den ene siden og utvalgte variabler. Beskriv hva grafene viser. Legge inn reglinjer? Lage noe per region?*
@@ -757,6 +759,7 @@ ggplot(df_growth2019, aes(x= avg_nsy, y = ln_gdppc, color = region)) +
 **Kommentar**\
 - kanskje lage flere reglinjer? - stor spredning i datamaterialet\
 - ser ut til å være liten sammenheng,prøver å fjerne outliers\
+- kan se ut som det er større sammenheng innad i regioner - sjekkes
 \
 
 ##### Sammenhengen mellom gjennomsnittlig årlig vekstrate i befolkningen og BNP per innbygger
@@ -773,7 +776,7 @@ ggplot(df_growth2019, aes(x= avg_p, y = ln_gdppc, color = region) ) +
 **Kommentar**\
 - ser ut til å være negativ sammenheng mellom vekstrate i befolkningen og nivå på BNP per innbygger - kommentere regionene?\
 - fjerne outliers?
-
+- også her forskjell mellom regioner
 \
 
 ##### Sammenhengen mellom utdanningsnivå og BNP per innbygger
@@ -789,7 +792,7 @@ ggplot(df_growth2019, aes(x= avg_educ, y = ln_gdppc, color=region) ) +
 ```
 
 **Kommentar**\
-- sterk sammenheng mellom nivå på BNP og utdanningsnivå - fjerne Outliers\
+- sterk sammenheng mellom nivå på BNP og utdanningsnivå
 \
 
 ##### Sammenhengen mellom sparing og årlig vekstrate i BNP per capita
@@ -831,11 +834,22 @@ df_growth2019_n <- df_growth2019[complete.cases(df_growth2019$region,df_growth20
 
 ### Økonometrisk analyse
 
-Fra gjennomgangen av Solow-modellen med teknologi og naturressurser fant vi at vekstraten i BNP per innbygger i et land påvirkes positivt av spareraten og vekstraten i arbeidskraften. Vekstraten påvikres negativt av befolkningsvekst.
+Fra gjennomgangen av Solow-modellen med teknologi og naturressurser fant vi at vekstraten i BNP per innbygger i et land påvirkes positivt av spareraten og vekstraten i arbeidskraften. Vekstraten påvikres negativt av befolkningsvekst. Tiden er nå inne til å sjekke om dette er tilfelle når vi ser på de faktiske tall.
 
-*I avsnitt 4.2 skal du presentere resultatene av din regresjonsanalyse. Lag i en tabell som viser koeffisientene til alle forklarende variabler, signifikans-nivå, og R2-verdi.*
+Fra kapitlet om metode har vi at regresjonsmodellen som brukes er:  
 
-*NB 1: Det kan være en god ide å starte med en modell der du har med de variabler som den teoretiske modellen er viktigst, for å deretter legge til variabler som også kan være viktige bestemmelsesfaktorer selv om Solow-modellen ikke tar hensyn til disse.*
+$g_{y,i} = {\alpha} + {\beta_1} \cdot educ_i + {\beta_2} \cdot n_i + {\beta_3} \cdot p_i + {\beta_4}\cdot nsy_i  +  {\beta_5} \cdot nry_i + {\beta_6} \cdot gi_i  + {\beta_7} \cdot lnDPPC0_i + {\beta_8} \cdot gx_i  + {\epsilon_i}$
+
+der $g_{y,i}$ er vekstraten i BNP i land nr $i$,  
+$educ_i$ er gjennomsnittlig antall år i skole i land nr $i$,  
+$n_i$ er gjennomsnittlig vekst i arbeidsstyrken i land nr $i$,  
+$p_i$ er gjennomsnittlig vekst i befolkningen i land nr $i$,  
+$nsy_i$ gjennomsnittlig nettosparing i land nr $i$,  
+$nry_i$ gjennomsnittlig uttømming av naturressurser i land nr $i$,  
+$gi_i$ gjennomsnittlig årlig vekst i investeringene i land nr $i$,  
+$lnDPPC0_i$ BNP per innbygger i år 2000 i land nr $i$,  
+$gx_i$ gjennomsnittlig vekstrate i eksport i land nr $i$.
+${\epsilon_i}$ er restledd 
 
 
 Her er variablene jeg har brukt i den multiple regresjonsmodellen. Den første modellen jeg vil vurdere omfatter variablene 1-7. Jeg har utelatt variablen "gjennomsnittlig vekstrate i eksport" fordi en av antakelsene i vekstmodellen til Solow er at økonomien er lukket. Signifikansnivået er satt til 1 $\%$. 
@@ -848,9 +862,10 @@ Her er variablene jeg har brukt i den multiple regresjonsmodellen. Den første m
 6.avg_gi: gjennomsnittlig årlig vekst i investeringene  
 7.ln_gdppc0: BNP per innbygger i år 2000  
 8.avg_gx: gjennomsnittlig vekstrate i eksport  
-\
-##### Modell 1 resultater
-```{r}
+
+
+#### Modell 1 lukket økonomi
+```{r modell 1 lukket}
 suppressPackageStartupMessages(library(sjPlot))
 suppressPackageStartupMessages(library(sjmisc))
 suppressPackageStartupMessages(library(sjlabelled))
@@ -858,7 +873,7 @@ suppressPackageStartupMessages(library(sjlabelled))
 model_full_1_growth <- lm(avg_gdpgrowth  ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi +  ln_gdppc0, data= df_growth2019)
 tab_model(model_full_1_growth)
 ```
-Vi ser av tabellen at variablene forklarer totalt 57.7 $\%$ ($R^2$)$av sammenhengen, men at det er store forskjeller i påvirkningskraft og signifikans. Vi kan tolke resultatene slik:  
+Vi ser av tabellen at variablene forklarer totalt 57.7 $\%$ ($R^2 adjusted$) av sammenhengen, men at det er store forskjeller i påvirkningskraft og signifikans. Vi kan tolke resultatene slik:  
 
 - Et år ekstra utdanning(avg_educ) gir 0.28 monetære enheter økt vekst i BNP per innbygger. Dette er et signifikant resultat fordi p-verdien er 0.001 som innebærer at det er 99 $\%$ sikkert at estimatet er forskjellig fra 0.  
 
@@ -868,125 +883,44 @@ Vi ser av tabellen at variablene forklarer totalt 57.7 $\%$ ($R^2$)$av sammenhen
 
 - 1 $\%$ økning i spareraten(avg_nsy) gir 0.07 $\%$ økning i veksten i BNP per innbygger. Også her er resultatet signifikant fordi p-verdien er mindre enn 0.001.  
 
-- 1 $\%$ økning i uttaket av naturressurser(avg_nry) reduserer veksten i BNP per innbygger med 0.07 $\%$. Resultatet er ikke signifikant fordi p-verdien er 0.007.  
-- 1 $\%$ økning i nettoinvesteringene gir økning i veksten i BNP per innbygger, men estimatet er ikke signifikant fordi p-verdien er 0.137.  
+- 1 $\%$ økning i uttaket av naturressurser(avg_nry) reduserer veksten i BNP per innbygger med 0.07 $\%$. Resultatet er ikke signifikant fordi p-verdien er 0.007. 
+- 1 $\%$ økning i nettoinvesteringene(avg_gi) gir økning i veksten i BNP per innbygger, men estimatet er ikke signifikant fordi p-verdien er 0.137.  
 
-- 1 $\%$ økning i nivået i BNP per innbygger i år 2000 vil redusere vekstraten i BNP per innbygger med 1.48 $\%$. Resultatet er signifikant fordi p-verdien er mindre enn 0.001. 
+- 1 $\%$ økning i nivået i BNP per innbygger i år 2000(ln_gdppc0) vil redusere vekstraten i BNP per innbygger med 1.48 $\%$. Resultatet er signifikant fordi p-verdien er mindre enn 0.001.  
+
 \
-En foreløpig konklusjon er at det som påvirker vekstraten i BNP per innbygger er hvilket utgangspunkt et land har. De fleste andre variablene har enten liten påvirkningskraft, er ikke signifikant eller er begge deler.
 
-
-Vekstrate:
-
-Kommentar:
-
-
-##### Steg for steg analyse
-Jeg vil nå bygge opp regresjonslikningen steg for steg for å se hvordan adjusted $R^2$ utvikler seg.
-
-Den første sammenhengen jeg vil se på er mellom vekstrate i BNP og utdanning:
-
-```{r}
-model_2_growth <- lm(avg_gdpgrowth  ~ avg_educ,  data= df_growth2019)
-tab_model(model_2_growth)
-```
-Kommentar:  
-Utdanning har lite å si for vekstraten i BNP.
-
-```{r}
-model_2 <- lm(ln_gdppc  ~ avg_educ,  data= df_growth2019)
-tab_model(model_2)
-```
-
-Kommentar:  
-Vi ser at det er en positiv sammenheng mellom utdanning og nivå på BNP. Sammenhengen er signifikant på 1 % nivå og variablen forklarer 73.4 % av sammenhengen.
-
-```{r}
-model_3 <- lm(ln_gdppc  ~ avg_p, data= df_growth2019)
-tab_model(model_3)
-```
-
-Kommentar:  
-Vi ser at befolkningsøkning påvirker BNP negativt
-
-```{r}
-model_3_growth <- lm(avg_gdpgrowth ~ avg_p, data= df_growth2019)
-tab_model(model_3_growth)
-```
-
+#### Modell 2 åpen økonomi
 Model med eksport - ikke i tråd med antakelsen om lukket økonomi:
+Jeg til eksportvariabel for å se om resultatet endres vesentlig.
 
-```{r}
-model4 <- lm(ln_gdppc  ~ avg_educ + avg_nry + avg_gx, data= df_growth2019)
-tab_model(model4)
+```{r modell 2 eksport}
+model_2_eksport <- lm(avg_gdpgrowth ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0 + avg_gx, data= df_growth2019)
+tab_model(model_2_eksport)
 ```
 
 **Kommentar**
-
-```{r}
-model_full_1 <- lm(ln_gdppc  ~ avg_n + avg_p + avg_nsy + avg_nry + avg_gi + avg_educ + ln_gdppc0, data= df_growth2019)
-tab_model(model_full_1)
-
-```
+Vi ser at $R^2 adjusted$ øker fra 57.7$\%$ til 70.6$\%$ og estimatene for variablene endres også. Mer om dette.
 
 
-geom_smooth(method=lm, se = FALSE, fullrange = TRUE)
+#### Modeller uten ekstremverdier
+
+Det er ekstreme observasjoner i datamaterialet som er gjennomgått. Jeg har valgt å fjerne alle verdier som er definert som ekstremverdier. Jeg har kjørt en egen multippel regresjon med datasettet uten disse. 
+Koden som er brukt for å rydde datasettet er beskrevet her: https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/ for reference
 
 
-NB 2: Datamaterialet inneholder noen ekstreme observasjoner (outliers). Du kan identifisere disse ved å bruke koden her nede. Koden lager et datasett der outliers har blitt tatt vekk. Du kan bruke dette datasettet til å estimere nye modeller og sammenligne dine resultater.
-
-Modell med opprinnelige data:
-
-```{r}
-model_1 <- lm(avg_gdpgrowth  ~ avg_gi , data=  df_growth2019 ) 
-summary(model_1)
-```
-
-```{r}
-# Vi har ekstreme observasjoner i datamaterialet. Vi må sjekke hvordan resultatene påvirkes av at vi tar vekk disse. 
-# Koden her nede følger metoden som er beskrevet her: https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/ for reference
-
-# Basert på den grafiske analysen av sammenhengen mellom vekst i BNP per innbygger og vekst i investeringer, starter jeg med å se på ekstreme observasjoner i avg_gi
-Q1gi <- quantile(df_growth2019$avg_gi, .25 )
-Q3gi <- quantile(df_growth2019$avg_gi, .75)
-IQRgi <- IQR(df_growth2019$avg_gi)
-no_outliers1 <- subset(df_growth2019, df_growth2019$avg_gi > (Q1gi - 1.5*IQRgi) & df_growth2019$avg_gi < (Q3gi + 1.5*IQRgi))
-dim(no_outliers1)
-
-```
-
-```{r}
-# Kjører rensing av alle variablene
-
-df <- df_growth2019[complete.cases( df_growth2019$avg_gi,
-                                    df_growth2019$avg_educ ),]
-
-Q1_gi <- quantile(df$avg_gi, .25 )
-Q3_gi <- quantile(df$avg_gi, .75)
-IQR_gi <- IQR(df$avg_gi)
-
+```{r fjerne outliers}
+df <- df_growth2019[complete.cases( df_growth2019$avg_educ,
+                                    df_growth2019$avg_n,df_growth2019$avg_p,
+                                    df_growth2019$avg_nsy, df_growth2019$avg_nry,
+                                    df_growth2019$avg_gi,df_growth2019$ln_gdppc0,
+                                    df_growth2019$avg_gx),]
 Q1_educ <- quantile(df$avg_educ, .25 )
 Q3_educ <- quantile(df$avg_educ, .75)
 IQR_educ <- IQR(df$avg_educ)
 
-no_outliers_2 <- subset(df, df$avg_gi > (Q1_gi - 1.5*IQR_gi) & df$avg_gi < (Q3_gi + 1.5*IQR_gi) & df$avg_educ > (Q1_educ - 1.5*IQR_educ) & df$avg_educ < (Q3_educ + 1.5*IQR_educ))
-dim(no_outliers_2)
-```
 
-Modell der ekstremverdier er fjernet
 
-```{r}
-model_2 <- lm(avg_gdpgrowth  ~ avg_gi , data= no_outliers1) 
-summary(model_2)
-```
-
-Kjører rensing av alle variablene
-
-```{r}
-df <- df_growth2019[complete.cases( df_growth2019$avg_n,df_growth2019$avg_p,
-                                    df_growth2019$avg_nsy, df_growth2019$avg_nry,
-                                    df_growth2019$avg_gi,df_growth2019$avg_gx,
-                                    df_growth2019$avg_educ ),]
 Q1_n <- quantile(df$avg_n, .25 )
 Q3_n <- quantile(df$avg_n, .75)
 IQR_n <- IQR(df$avg_n)
@@ -1007,47 +941,104 @@ Q1_gi <- quantile(df$avg_gi, .25 )
 Q3_gi <- quantile(df$avg_gi, .75)
 IQR_gi <- IQR(df$avg_gi)
 
+Q1_ln_gdppc0 <- quantile(df$ln_gdppc0, .25 )
+Q3_ln_gdppc0 <- quantile(df$ln_gdppc0, .75)
+IQR_ln_gdppc0 <- IQR(df$ln_gdppc0)
+
 Q1_gx <- quantile(df$avg_gx, .25 )
 Q3_gx <- quantile(df$avg_gx, .75)
 IQR_gx <- IQR(df$avg_gx)
-
-Q1_educ <- quantile(df$avg_educ, .25 )
-Q3_educ <- quantile(df$avg_educ, .75)
-IQR_educ <- IQR(df$avg_educ)
-
-no_outliers <- subset(df, df$avg_n > (Q1_n - 1.5*IQR_n) & df$avg_n < (Q3_n + 1.5*IQR_n)& df$avg_p > (Q1_p - 1.5*IQR_p) & df$avg_p < (Q3_p + 1.5*IQR_p) & df$avg_nsy > (Q1_nsy - 1.5*IQR_nsy) & df$avg_nsy < (Q3_nsy + 1.5*IQR_nsy)& df$avg_nry > (Q1_nry - 1.5*IQR_nry) & df$avg_nry < (Q3_nry + 1.5*IQR_nry) & df$avg_gi > (Q1_gi - 1.5*IQR_gi) & df$avg_gi < (Q3_gi + 1.5*IQR_gi) & df$avg_gx > (Q1_gx - 1.5*IQR_gx) & df$avg_gx < (Q3_gx + 1.5*IQR_gx) & df$avg_educ > (Q1_educ - 1.5*IQR_educ) & df$avg_educ < (Q3_educ + 1.5*IQR_educ))
-dim(no_outliers)
 ```
 
-Modell med bruk av datasett uten ekstremverdier
 
+```{r nytt df uten outliers}
+no_outliers <- subset(df, 
+                      df$avg_educ > (Q1_educ - 1.5*IQR_educ) & df$avg_educ < (Q3_educ + 1.5*IQR_educ) & 
+                        df$avg_n > (Q1_n - 1.5*IQR_n) & df$avg_n < (Q3_n + 1.5*IQR_n)& 
+                        df$avg_p > (Q1_p - 1.5*IQR_p) & df$avg_p < (Q3_p + 1.5*IQR_p) & 
+                        df$avg_nsy > (Q1_nsy - 1.5*IQR_nsy) & df$avg_nsy < (Q3_nsy + 1.5*IQR_nsy) & 
+                        df$avg_nry > (Q1_nry - 1.5*IQR_nry) & df$avg_nry < (Q3_nry + 1.5*IQR_nry) & 
+                        df$avg_gi > (Q1_gi - 1.5*IQR_gi) & df$avg_gi < (Q3_gi + 1.5*IQR_gi) & 
+                        df$ln_gdppc0 > (Q1_ln_gdppc0 - 1.5*IQR_ln_gdppc0) & df$ln_gdppc0 < (Q3_ln_gdppc0 + 1.5*IQR_ln_gdppc0) & 
+                        df$avg_gx > (Q1_gx - 1.5*IQR_gx) & df$avg_gx < (Q3_gx + 1.5*IQR_gx))
+
+```
+
+```{r deskriptiv uten outliers}
+table_no_outliers<-round(describe(no_outliers[,c('ln_gdppc',
+                          'avg_gdpgrowth','ln_gdppc0','avg_n','avg_p', 'avg_nsy',
+                          'avg_nry','avg_gi','avg_gx','avg_educ'
+                        )], fast=TRUE),2)
+table_no_outliers<- as.data.frame(table_no_outliers)
+rownames(table_no_outliers)<-c("log BNP per innbygger i 2019 (ln_gdppc)","Gjennomsnittlig årlig vekstrate i BNP \npc 2000-2019 (%) (avg_gdpgrowth)","log BNP per innbygger i 2000 (ln_gdppc0)", "Gjennomsnittlig årlig vekstrate i arbeidskraften (%) (avg_n)","Gjennomsnittlig årlig befolkningsvekst (%) (avg_p)","Gjennomsnittlig sparing for perioden 2000-2015 (%) (avg_nsy)","Gjennomsnittlig årlig vekstrate (negativ) i naturressurser (%) (avg_nry)", "Gjennomsnittlig årlig vekstrate i investeringer (%) (avg_gi)","Gjennomsnittlig årlig vekstrate i eksport (%) (avg_gx)","Gjennomsnittlig antall år i skole (avg_educ)")
+```
+##### Deskriptiv statistikk uten ekstremverdier
 ```{r}
-model_full_2 <- lm(ln_gdppc  ~ avg_n + avg_p + avg_nsy + avg_nry + avg_gi + avg_educ + ln_gdppc0, data= no_outliers)
-tab_model(model_full_2)
+#| label: Deskriptiv statistikk uten ekstremverdier
+
+knitr::kable(table_no_outliers[,2:6], caption = "Deskriptiv statistikk uten ekstremverdier", col.names = c("N", "Gj.snitt","SD","Min", "Maks")) %>%
+  column_spec(1,width = "5cm") %>% 
+  kable_styling(bootstrap_options = c("striped")) 
 ```
 
-```{r}
-model_3 <- lm(avg_gdpgrowth  ~ avg_gi , data= no_outliers1) #NB: Du må legge inn "Dine" variabler her
-summary(model_3)
-```
+Kommentar:  
+Vi sammenlikner med tabell 1 og ser at antall verdier i datasettet er redusert til 81. Det er antall observasjoner knyttet til vekstrate i naturressurser, investeringer og eksport som har hatt ekstremverdier.  
 
-Beskriv effekten av de ulike variablene på vekst i BNP per innbygger. Er f.eks. en høyere sparerate knyttet til en høyere eller lavere vekst i BNP per innbygger? Er effekten signifikant? Beskriv i tillegg i hvor godt dine forklaringsvariabler klarer å forklare vekstraten i BNP per innbygger.
+##### Model 3 lukket økonomi
+```{r mod 3 full df no outliers}
+model_3_growth <- lm(avg_gdpgrowth ~ avg_educ  + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0, data= no_outliers)
+tab_model(model_3_growth)
+```
+**Kommentar**
+Vi ser at $R^2 adjusted$ er 63.0$\%$ og estimatene for variablene endres også. Mer om dette.
+
+
+
+
+##### Model 4 åpen økonomi
+Model med eksport - ikke i tråd med antakelsen om lukket økonomi:
+```{r mod 4 eksport no outliers}
+model_4_eksport <- lm(avg_gdpgrowth ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0 + avg_gx, data= no_outliers)
+tab_model(model_4_eksport)
+```
+Kommentar:  
+Vi ser at $R^2 adjusted$ øker fra 63.0$\%$ til 72.2$\%$ og estimatene for variablene endres også. Mer om dette.
+
+*Beskriv effekten av de ulike variablene på vekst i BNP per innbygger. Er f.eks. en høyere sparerate knyttet til en høyere eller lavere vekst i BNP per innbygger? Er effekten signifikant? Beskriv i tillegg i hvor godt dine forklaringsvariabler klarer å forklare vekstraten i BNP per innbygger.*
+
+
 
 ## Diskusjon
+ 
+- Det er en svak positiv signifikant sammenheng mellom sparerate og vekst i BNP per innbygger.  
+- Det er en svak negativ signifikant sammenheng mellom befolkningsvekst og vekst i BNP per innbygger.  
+- Det er en positiv sammenheng mellom vekst i arbeidsstyrken og vekst i BNP per innbygger. Sammenhengen er ikke signifikant.  
+- Det er en svak positiv sammenheng mellom vekst i investeringsrate og vekst i BNP per innbygger. Sammenhengen er ikke signifikant.
 
-I diskusjonen skal du tolke og diskutere dine resultater. I diskusjonen skal du besvare følgende spørsmål: Støtter resultatene prediksjonene fra Solow-modellen? Hva betyr resultatene? Hvilke konklusjoner kan vi dra fra den empiriske analysen? Finnes det noen problemer med analysen eller datamaterialet som fører til at vi kanskje ikke burde dra for sterke konklusjoner?
 
-Til slutt skal du diskutere implikasjoner for policy (politiske inngrep). Basert på din analyse, hva ville du anbefale at politiker, som ønsker å oppnå bærekraftig vekst, skal føre for politikk?
+
+
+
+
+- Støtter resultatene prediksjonene fra Solow-modellen?
+- Hva betyr resultatene?
+- Hvilke konklusjoner kan vi dra fra den empiriske analysen?
+- Finnes det noen problemer med analysen eller datamaterialet som fører til at vi kanskje ikke burde dra for sterke konklusjoner?
+  
+
+*Til slutt skal du diskutere implikasjoner for policy (politiske inngrep). Basert på din analyse, hva ville du anbefale at politiker, som ønsker å oppnå bærekraftig vekst, skal føre for politikk*
 
 ## Referanser
 
-I referanseavsnittet skal du oppgi de referanser du har brukt til å skrive oppgaven. Alle referanser i teksten skal være med i referanselisten og vice versa. UiT Norges arktiske universitet har valgt EndNote som sitt referanseverktøy og stilen APA som sin referansestil. Det fins en egne norsk versjon av APA. Universitetsbibliotekets (UBs) EndNote-sider finner du her. Bruk stilen APA eller en annen anerkjent referansestil (Harvard, Chicago etc.). Valgt referansestil skal anvendes konsekvent. For å kunne gjøre dette enkelt, kan du laste ned EndNote-programmet. Eksempler på referanser basert på UBs norske variant av APA finner du her. Det er også mulig å integrere referanser i for eksempel Quarto, slik jeg har gjort her nede.
+*I referanseavsnittet skal du oppgi de referanser du har brukt til å skrive oppgaven. Alle referanser i teksten skal være med i referanselisten og vice versa. UiT Norges arktiske universitet har valgt EndNote som sitt referanseverktøy og stilen APA som sin referansestil. Det fins en egne norsk versjon av APA. Universitetsbibliotekets (UBs) EndNote-sider finner du her. Bruk stilen APA eller en annen anerkjent referansestil (Harvard, Chicago etc.). Valgt referansestil skal anvendes konsekvent. For å kunne gjøre dette enkelt, kan du laste ned EndNote-programmet. Eksempler på referanser basert på UBs norske variant av APA finner du her. Det er også mulig å integrere referanser i for eksempel Quarto, slik jeg har gjort her nede.*
 
 Hess, Peter. N. 2016. Economic Growth and Sustainable Development. Routledge. https://www.routledge.com/Economic-Growth-and-Sustainable-Development/Hess/p/book/9781138853935.
 
+https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/
+
 ## Appendiks
 
-I appendiks skal du legge inn en lenke til dine R-skript på GitHub. Du kan i tillegg legge inn figurer og tabeller som du ikke ønsker å ha med i hovedteksten. Om appendiks inneholder både kode, figurer og tabeller må du lage ulike avsnitt i appendiks.
+*I appendiks skal du legge inn en lenke til dine R-skript på GitHub. Du kan i tillegg legge inn figurer og tabeller som du ikke ønsker å ha med i hovedteksten. Om appendiks inneholder både kode, figurer og tabeller må du lage ulike avsnitt i appendiks.*
 
 ### Variabeloversikt
 
