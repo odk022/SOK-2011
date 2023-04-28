@@ -1,5 +1,5 @@
 ---
-title: "SOK-2011-mappeinnlevering 2a"
+title: "SOK-2011-mappeinnlevering 1 og 2"
 author: "Kandidatnr 23"
 toc: true
 toc-title: Innhold
@@ -21,48 +21,25 @@ format:
   docx: default
 ---
 
-**SJEKKLISTE FOR DEL 1:**
-
-**Gjennomgående:**\
-- Språket i oppgaven er på et riktig nivå for en akademisk oppgave.\
-- Resonnementene er logiske og enkle å følge.\
-- Referansene er korrekte, og stilen er konsekvent.\
-- Alle referanser i teksten er med i referanselisten og vice versa.\
-- Kode er opplastet på GitHub og lenket til i oppgaven.
-
 ## Introduksjon
-
-**SJEKKLISTE** - Tydelig beskrivelse av temaet til oppgaven\
-- God definisjon av hva økonomisk vekst er og hvordan det måles.\
-- God diskusjon av hvorfor det er interessant å se på økonomisk vekst, inklusive eksempler på hvordan økonomisk vekst korrelerer med andre mål på velferd.\
-- God diskusjon av problemer knyttet til å bruke nivå på og vekst i BNP per innbygger som mål på velferd.\
-\
 Jeg vil i denne oppgaven gjøre rede for Solows vekstteorier og anvende den på et datasett fra Verdensbanken for å analysere om og i hvilken grad disse teoriene kan bidra til å forstå hva økonomisk vekst er og hva som skaper økonomisk vekst.\
 \
-Bruttonasjonalproduktet(BNP) for et land er lik summen av alle varer og tjenester som produseres i et år minus varene og tjenestene som brukes i produksjonen. For å kunne sammenlikne land med hensyn til BNP brukes ofte BNP per innbygger. Vi får da et bilde av en verden med veldig store forskjeller. Samtidig er det jo ikke slik at BNP per innbygger faktisk angir hvor mye hver innbygger mottar av BNP. Det er ikke et begrep som forteller noe om fordelingen av produksjonen, bare om størrelsen. For å måle fordeling av et lands inntekter kan vi bruke Lorenz-kurve og Gini-indeks.(Mer om dette)
+Bruttonasjonalproduktet(BNP) for et land er lik summen av alle varer og tjenester som produseres i et år minus varene og tjenestene som brukes i produksjonen. For å kunne sammenlikne land med hensyn til BNP brukes ofte BNP per innbygger. Vi får da et bilde av en verden med veldig store forskjeller. Samtidig er det jo ikke slik at BNP per innbygger faktisk angir hvor mye hver innbygger mottar av BNP. Det er ikke et begrep som forteller noe om fordelingen av produksjonen, bare om størrelsen.   
+\
+For å måle fordeling av et lands inntekter kan vi bruke Lorenz-kurve og Gini-indeks. Lorenz-kurven viser hvor stor andel av de totale inntektene som tilfaller en gitt andel av befolkningen når den er ordnet etter inntekt. Ved full likhet vil det være samsvar mellom andel av befolkning og andel av inntekt, slik at for eksempel 10 % av befolkningen vil motta 10 prosent av inntektene. Gini-indeksen oppsummerer disse resultatene i et tall som uttrykker graden av inntektsulikhet i et land på en skala fra 0 til 1 der 0 betyr fullstendig likhet.(Meld. St. 13 (2018-2019), boks 2.4, s.27)
 
-Selv om BNP per innbygger ikke er et fordelingsbegrep, vil det være slik at nivået er viktig for velferden til innbyggerne i et land. Også med en veldig skjev fordeling av de totale inntektene, vil det være mulig å tenke seg at jo høyere inntekter, jo mer brukes på hver innbygger. I en slik sammenheng er derfor økonomisk vekst viktig fordi det skaper større inntekter som muliggjør økt velferd selv med en skjev inntektsfordeling i et land.
+\
+Selv om BNP per innbygger ikke er et fordelingsbegrep, vil det være slik at nivået er viktig for velferden til innbyggerne i et land. Også med en veldig skjev fordeling av de totale inntektene, vil det være mulig å tenke seg at jo høyere inntekter, jo mer brukes på hver innbygger.I en slik sammenheng er derfor økonomisk vekst viktig fordi det skaper større inntekter som muliggjør økt velferd selv med en skjev inntektsfordeling i et land. Vi vet at det er sammenheng mellom BNP per innbygger og forventet levealder, og at det er store forskjeller i levealder mellom fattige og rike land. Vi vet også at omfanget av ekstrem fattigdom og sult følger samme landmønster. Økonomisk vekst målt i vekst i BNP per innbygger er derfor relevant å analysere fordi det skaper muligheter for økt velferd for et lands innbyggere, avhengig av fordelingen av inntekter.
 
+\
 I teoridelen vil jeg ta utgangspunkt i Solow BAS vekstmodell for å vise hvilke faktorer som er bestemmende for vekstnivå og vekstrate i en land. Deretter vil jeg utvide modellen til å omfatte teknologi, kvaliteten til produksjonsfaktorene og naturressurser og gjøre tilsvarende utledninger.
 
 Den empiriske analysen vil være regresjonsanalyse av data fra World Development Indicators fra Verdensbanken som søker å besvare hva bestemmer nivå på og vekst i materiell velferd.
 
-Det må til slutt understrekes at det som er gjort ikke representerer det endelige produktet.
+## Teori: Solow-modellen  
+Vekstmodellene til Solow er av ulik kompleksitet fra en enkel modell med kun produksjonsfaktorene kapital og arbeid til den mest avanserte som også har med teknologi, total faktorproduktivitet og naturressurser. Jeg vil starte med å beskrive den enkle modellen og resultatene vi kommer fram til. De matematiske utledningene er basert på forelesningsnotater, men med egne kommentarer.
 
-## Teori: Solow-modellen
-
-**SJEKKLISTE**\
-- Tydelig redegjørelse for antakelser/forutsetninger for Solow-modellen\
-- Grafisk illustrasjon av tilpasning til steady-state i Solow-modellen (med eller uten teknologisk utvikling og naturressurser).\
-- Beskrivelse av og økonomisk intuisjon til hvordan sparing/investeringer, befolkningsvekst, teknologi og uttømning av naturressurser på virker nivå på og vekst i BNP per innbygger på lang sikt.\
-- Dersom teori-seksjonen inneholder matematiske utledninger, er disse enkle å følge og riktige. Små slurvefeil er akseptable. Lag nummer på likningene.\
-- Prediksjonene fra modellen er tydelig gjort rede for.\
-\
-
-Vekstmodellene til Solow er av ulik kompleksitet fra en enkel modell med kun produksjonsfaktorene kapital og arbeid til den mest avanserte som også har med total faktorproduktivitet og naturressurser. Jeg vil starte med å beskrive den enkle modellen og resultatene vi kommer fram til.
-
-### Solow BAS modellen
-
+### Solow BAS modellen  
 Produksjonen($Y$) skjer ved hjelp av to innsatsfaktor, Arbeidskraft($L$) og Kapital($K$). Produktfunksjonen kan skrives generelt som $Y(t)=F(K(t),L(t))$.
 
 #### Antakelser i modellen:
@@ -74,81 +51,73 @@ Produksjonen($Y$) skjer ved hjelp av to innsatsfaktor, Arbeidskraft($L$) og Kapi
 
 -   Produksjonen har konstant skalautbytte. Dette innebærer at hvis innsatsfaktorene øker med 1 $\%$, vil produksjonen øke med 1$\%$.
 
--   Produksjonsfaktorene har positiv, men avtakende grenseproduktivitet. Dette betyr at:
-
-    $\frac{\partial Y(t)}{\partial K(t)}= \frac{\partial F(K(t),L(t))}{\partial K(t)}> 0$ og at: $\frac{\partial^2 Y(t)}{\partial K(t)^2}= \frac{\partial^2 F(K(t),L(t))}{\partial K(t)^2}< 0$\
-    \
-    Det samme gjelder for L(t):
-
-    $\frac{\partial Y(t)}{\partial L(t)}= \frac{\partial F(K(t),L(t))}{\partial L(t)}> 0$ og at: $\frac{\partial^2 Y(t)}{\partial L(t)^2}= \frac{\partial^2 F(K(t),L(t))}{\partial L(t)^2}< 0$\
+-   Produksjonsfaktorene har positiv, men avtakende grenseproduktivitet.
 
 -   Alle i befolkningen er i arbeid $L=P$
 
 -   Veksten i befolkningen skjer med konstant, og eksogent gitt rate $n: L(t)=L_0\cdot e^{n \cdot t}$
 
--   Netto sparerate er konstant lik en andel $s$ av total produksjon $Y(t)$, dvs, $I(t)=s\cdot Y(t)$ Et annet uttrykk for det samme er endringer i kapitalen over tid: ${\frac{\partial K(t)}{\partial t}}$\
+-   Netto sparerate er konstant lik en andel $s$ av total produksjon $Y(t)$, dvs, $I(t)=s\cdot Y(t)$ Et annet uttrykk for det samme er endringer i kapitalen over tid: ${\frac{\partial K(t)}{\partial t}}$  
 
 -   Det er ingen utenrikshandel, dvs, at landet er en lukket økonomi.
 
-### Hva bestemmer nivå og vekst i materiell velferd
+### Nivå og vekst i materiell velferd
 
-#### Hva bestemmer nivået på BNP per arbeider i langsiktig likevekt
+#### Nivået på produksjon per arbeider
 
 Jeg omformer først produktfunksjonen i Solow BAS slik at den gir oss produksjon per arbeider:
 
-**Generell produktfunksjon:** $Y(t)=F(K(t),L(t))$\
+**Generell produktfunksjon:**  
+
+(1)   $Y(t)=F(K(t),L(t))$  
 For å finne produksjon per arbeider deler vi på L:
 
 $y=\frac {Y(t)}{L(t)}= \frac {F(K(t),L(t))} {L(t)}$
 
-$y= F(\frac {K(t)}{L(t)},1)$ → $y=F(\frac {K(t)}{L(t)})= f(k(t))$
+(2)   $y= F(\frac {K(t)}{L(t)},1)$ → $y=F(\frac {K(t)}{L(t)})= f(k(t))$
 
 Vi ser av uttrykket at produksjon per arbeider($y$) er lik kapital($K$) per arbeider($L$). Dette forholdet ($\frac {K(t)}{L(t)}$) kaller vi kapitalintensiteten og benevner det $k$.\
- 
 
-**Spesifikk produktfunksjon:** $Y(t)= K(t)^\alpha\cdot L(t)^{1-\alpha}$ der $0<\alpha<1$
+**Spesifikk produktfunksjon:**  
+(3)   $Y(t)= K(t)^\alpha\cdot L(t)^{1-\alpha}$ der $0<\alpha<1$
 
-$y=\frac {Y(t)}{L(t)}= \frac {K(t)^\alpha\cdot L(t)^{1-\alpha}} {L(t)}=K(t)^\alpha\cdot L(t)^{1-\alpha-1}=(\frac {K(t)}{L(t)})^\alpha= k(t)^\alpha$ 
+(4)   $y=\frac {Y(t)}{L(t)}= \frac {K(t)^\alpha\cdot L(t)^{1-\alpha}} {L(t)}=K(t)^\alpha\cdot L(t)^{1-\alpha-1}=(\frac {K(t)}{L(t)})^\alpha= k(t)^\alpha$ 
 
 Vi ser altså at produksjonen per arbeider $y(t)$ er avhengig av kapitalintensiviteten $k(t)$.\
 
 #### Forholdet mellom produksjon per arbeider og kapitalintensiteten
 
-La oss nå se på hvordan produksjonen per arbeider($y(t)$) endres når kapitalintensiteten($k(t)$) endres. Jeg vil i den videre analysen bruke den spesifikke produktfunksjonen.
+La oss nå se på hvordan produksjonen per arbeider($y(t)$) endres når kapitalintensiteten($k(t)$) endres. Jeg vil i den videre analysen bruke den spesifikke produktfunksjonen. Bruker (4) og deriverer med hensyn på ($k(t)$):
 
-$y(t)= k(t)^\alpha$
+(5)   $\frac{\partial y(t)}{\partial k(t)}= \alpha \cdot k(t)^{\alpha -1}>0$
 
-$\frac{\partial y(t)}{\partial k(t)}= \alpha \cdot k(t)^{\alpha -1}>0$\
 som er positiv fordi $\alpha > 0$.
 
 Dette betyr at når mengden kapital vi har i forhold til arbeid øker, vil produksjonen per arbeider øke.
 
 Produktfunksjonen er avtakende når $k(t)$ øker:
 
-$\frac{\partial^2 y(t)}{\partial k(t)^2}=\alpha(\alpha-1)\cdot k(t)^{\alpha-2}<0$\
-\
-Vi har altså funnet at produksjonen per arbeider øker med økende kapitalintensivitet, men effekten den har på produksjon per innbygger bli stadig mindre. Vi ser av figuren at når k øker, vil bidraget til y være positivt, men til en avtakende rate.
+(6)   $\frac{\partial^2 y(t)}{\partial k(t)^2}=\alpha(\alpha-1)\cdot k(t)^{\alpha-2}<0$
 
-Dette kan framstilles grafisk på denne måten:
-
-![Grenseproduktiviteten til kapitalintensiviteten(k)](Grenseproduktivitet.png)
+Vi har altså funnet at produksjonen per arbeider øker med økende kapitalintensivitet, men effekten den har på produksjon per arbeider blir stadig mindre.
 
 #### Vekst i produksjonen per arbeider
 
-For å finne ut dette må vi se på hvordan $y(t)$ endrer seg når tiden går. Vi deriverer derfor $y(t)$ med hensyn på $t$ og får:
+For å finne ut hvordan produksjonen per arbeider vokser, må vi se på hvordan $y(t)$ endrer seg når tiden går. Vi deriverer derfor $y(t)$ med hensyn på $t$ og får:
 
-$\frac{\partial y(t)}{\partial t}= \alpha \cdot k^{\alpha-1} \cdot \frac{\partial k(t)}{\partial t}$
+(7)   $\frac{\partial y(t)}{\partial t}= \alpha \cdot k^{\alpha-1} \cdot \frac{\partial k(t)}{\partial t}$
 
-Vi deler dette på $y(t)$ for å få veksten i produksjonen pr arbeider:\
-$\frac{\frac{\partial y(t)}{\partial t}}{y(t)}= \frac{\alpha \cdot k^{\alpha-1}}{k(t)^\alpha} \cdot \frac{\partial k(t)}{\partial t} = {\alpha \cdot k^{\alpha-1-\alpha}} \cdot \frac{\partial k(t)}{\partial t}= \alpha \cdot {\frac 1{k(t)}\cdot \frac{\partial k(t)}{\partial t}}$
+Vi deler dette på $y(t)$ for å få veksten i produksjon pr arbeider:
 
-Vi setter vekstraten i $y(t)= g_y=\frac{\frac{\partial y(t)}{\partial t}}{y(t)}$ og vekstraten til $k(t)=g_k={\frac 1{k(t)}\cdot \frac{\partial k(t)}{\partial t}}$
+(8)   $\frac{\frac{\partial y(t)}{\partial t}}{y(t)}= \frac{\alpha \cdot k^{\alpha-1}}{k(t)^\alpha} \cdot \frac{\partial k(t)}{\partial t} = {\alpha \cdot k^{\alpha-1-\alpha}} \cdot \frac{\partial k(t)}{\partial t}= \alpha \cdot {\frac 1{k(t)}\cdot \frac{\partial k(t)}{\partial t}}$
+
+Vi setter vekstraten i $y(t)$ til $g_y=\frac{\frac{\partial y(t)}{\partial t}}{y(t)}$ og vekstraten i $k(t)$ til $g_k={\frac 1{k(t)}\cdot \frac{\partial k(t)}{\partial t}}$
 
 Vi får da at:
 
-$g_y=\alpha \cdot g_k$
+(9)   $g_y=\alpha \cdot g_k$
 
-som betyr at vekstraten i produksjonen per arbeider er lik produksjonselastisiteten til kapital ganget med veksten i kapitalintensiteten. Når vi samtidig vet at grenseproduktiviteten til kapitalintensisiteten er positiv og avtakende, vil også effekten av vekst i kapitalen være avtakende.
+som betyr at vekstraten i produksjonen per arbeider er lik produksjonselastisiteten til kapital ganget med veksten i kapitalintensiteten. Når vi samtidig vet at grenseproduktiviteten til kapitalintensisiteten er positiv og avtakende, vil også effekten av vekst i kapitalintensiteten være avtakende.
 
 #### Kapital per arbeider
 
@@ -156,93 +125,100 @@ Vi ønsker å finne ut hvordan kapitalintensiteten utvikler seg over tid og tar 
 
 $ln(k(t))= ln({\frac {K(t)}{L(t)}})$
 
-$ln(k(t))= ln(K(t)) - ln(L(t))$
+(10)    $ln(k(t))= ln(K(t)) - ln(L(t))$
 
 Deriverer med hensyn på t:
 
-${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}={\frac 1{K(t)}\cdot \frac{\partial K(t)}{\partial t}}-{\frac 1{L(t)}\cdot \frac{\partial L(t)}{\partial t}}$
+(11)    ${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}={\frac 1{K(t)}\cdot \frac{\partial K(t)}{\partial t}}-{\frac 1{L(t)}\cdot \frac{\partial L(t)}{\partial t}}$
 
 Vi ser at veksten i kapitalintensiviteten avhenger av veksten i kapitalen og veksten i arbeidskraften.
 
-Vi har tidligere definert at
+Vi har tidligere definert at:
 
-Arbeidskraften: $L(t) = L_0\cdot e^{n\cdot t}$
+Arbeidskraften: $L(t) = L_0\cdot e^{n\cdot t}$ med vekstrate: ${\frac{\partial L(t)}{\partial t}}=L_0 \cdot n$
 
-Vekstraten vil være: ${\frac{\partial L(t)}{\partial t}}=L_0 \cdot n$
-
-Vi har også at\
-${\frac{\partial K(t)}{\partial t}}=I(t)=s\cdot Y(t)$,
-
+Vi har også at ${\frac{\partial K(t)}{\partial t}}=I(t)=s\cdot Y(t)$,  
 altså at kapitalens utvikling over tid er det samme som investeringene som igjen er definert som andel av total produksjon, der $s$ er spareraten.\
-Vi setter inn for disse:
+Vi setter dette inn i (11):
 
-${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}={\frac {s\cdot Y(t)}{K(t)}-L_0 \cdot n}$
+(12) ${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}={\frac {s\cdot Y(t)}{K(t)}-L_0 \cdot n}$
 
-Ganger med $\frac 1 {L(t)}$ oppe og nede og får
+Ganger med $\frac 1 {L(t)}$ oppe og nede og får:
 
 ${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}=s \cdot\frac {\frac {Y(t)}{L(t)}}{\frac {K(t)}{L(t)}}-{\frac 1{L(t)}} \cdot L_0 \cdot n$
 
-og får at:
+setter inn $y(t)$ og $k(t)$ og får at:
 
-${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}=s \cdot\frac {y(t)}{k(t)}-n$
+(13) ${\frac{\partial k(t)}{\partial t}}\cdot {\frac 1{k(t)}}=s \cdot\frac {y(t)}{k(t)}-n$
 
 Ganger med $k(t)$ på begge sider som da gir at:
 
-${\frac{\partial k(t)}{\partial t}}=s \cdot y(t)-n \cdot k(t)$\
-\
+(14) ${\frac{\partial k(t)}{\partial t}}=s \cdot y(t)-n \cdot k(t)$\
+
 Vi ser at utviklingen av kapitalintensiteten er avhengig av forholdet mellom faktiske nettoinvesteringer ($s \cdot y(t)$) og nødvendige investeringer for å erstatte arbeidere med kapital ($n \cdot k(t)$).
 
-#### Langsiktig likevekt i produksjon per arbeider og kapitalintensivitet
+### Langsiktig likevekt i kapitalintensivitet og produksjon per arbeider
 
-Vi definerer langsiktig likevekt (Steady-state) som en situasjon der all automatisk tilpasning har skjedd og at vi har enten stabilt nivå på BNP per arbeider, eller stabil vekstrate i BNP per arbeider. Av gjennomgangen har vi at likevekt er oppnådd når $s\cdot y(t)=n\cdot k(t)$, altså at det er samsvar mellom de faktiske nettoinvesteringene og de nødvendige investeringene for å erstatte arbeidere med kapital.
+Vi definerer langsiktig likevekt (Steady-state) som en situasjon der all automatisk tilpasning har skjedd og at vi har enten stabilt nivå på produksjon per arbeider, eller stabil vekstrate i produksjon per arbeider. Av gjennomgangen har vi at likevekt er oppnådd når $s\cdot y(t)=n\cdot k(t)$, altså at det er samsvar mellom de faktiske nettoinvesteringene og de nødvendige investeringene for å erstatte arbeidere med kapital.
 
 Figuren viser bevegelsen mot en steady state likevekt.
 
 ![Solow BAS steady-state](Solow%20BAS%20steady-state.png)
 
-La oss ta utgangspunkt i nivå $k_1$.Her vil $s \cdot y(t)>n \cdot k(t)$ som betyr at de faktiske investeringene er større enn de som er nødvendig for å erstatte arbeidskraft. Dette betyr at kapitalintensiviteten øker og da vil også produksjonen per innbygger øke. Vi får en bevegelse utover i planet til $k^{ss}$ i figuren.
+La oss ta utgangspunkt i nivå $k_2$.Her vil $s \cdot y(t)>n \cdot k(t)$ som betyr at de faktiske investeringene er større enn de som er nødvendig for å erstatte arbeidskraft. Dette betyr at kapitalintensiviteten øker og da vil også produksjonen per arbeider øke. Vi får en bevegelse utover i planet til $k^{ss}$ i figuren.
 
-Tar vi utgangspunkt i nivå $k_2$ vil $s \cdot y(t)<n \cdot k(t)$. Her er de faktiske investeringene mindre enn det som er nødvendig for å erstatte arbeidskraft. Kapitalintensiviteten vil avta og dermed også produksjonen per innbygger. I figuren får vi en bevegelse innover i planet til $k^{ss}$.
+Tar vi utgangspunkt i nivå $k_1$ vil $s \cdot y(t)<n \cdot k(t)$. Her er de faktiske investeringene mindre enn det som er nødvendig for å erstatte arbeidskraft. Kapitalintensiviteten vil avta og dermed også produksjonen per innbygger. I figuren får vi en bevegelse innover i planet til $k^{ss}$.
 
 Dette betyr at vi har en langsiktig likevekt når kapitalintensiviteten er konstant.
 
-**Matematisk løsning:**
+#### Nivå på kapitalintensivitet i likevekt(steady-state)
 
-**Nivå på kapitalintensivitet i likevekt(steady-state):**\
-I steady-state har vi altså at:\
-${\frac{\partial k(t)}{\partial t}}=s \cdot y(t)-n \cdot k(t) = 0$
+I steady-state har vi altså at:
 
-Vi bruker at
+(15) ${\frac{\partial k(t)}{\partial t}}=s \cdot y(t)-n \cdot k(t) = 0$
 
-$y(t)= k(t)^\alpha$ (linje 107) og setter dette inn i uttrykket:
+Vi bruker at $y(t)= k(t)^\alpha$ (likning 4) og setter dette inn i uttrykket:
 
-$s\cdot k(t)^\alpha-n \cdot k(t) = 0$
+(16) $s\cdot k(t)^\alpha-n \cdot k(t) = 0$
 
 Vi deler på $k(t)$:
 
-${\frac{s\cdot k(t)^\alpha}{k(t)}}-n=0$
+(17) ${\frac{s\cdot k(t)^\alpha}{k(t)}}-n=0$
 
 som gir:
 
-${s\cdot k(t)^{\alpha-1}}=n$
+(18) ${s\cdot k(t)^{\alpha-1}}=n$
 
 Deler på begge sider med $k(t)^{\alpha-1}$:
 
-${\frac {s\cdot k(t)^{\alpha-1}}{k(t)^{\alpha-1}}}={\frac{n}{k(t)^{\alpha-1}}}$\
+(19) ${\frac {s\cdot k(t)^{\alpha-1}}{k(t)^{\alpha-1}}}={\frac{n}{k(t)^{\alpha-1}}}$ 
+
 Dette er det samme som:
 
-$s=n\cdot k(t)^{1-\alpha}$\
+(20) $s=n\cdot k(t)^{1-\alpha}$
+
 Deler på $n$: ${\frac {s}{n}}={k(t)^{1-\alpha}}$ og ganger eksponenten på begge sider med ${\frac{1}{1-\alpha}}$ som da gir oss:
 
-$k(t)^{ss} = {(\frac {s}{n})}^{\frac{1}{1-\alpha}}$\
-som er kapitalintensiviteten i langsiktig likevekt(steady state)\
- 
+(21) $k(t)^{ss} = {(\frac {s}{n})}^{\frac{1}{1-\alpha}}$
 
-**Nivå på produksjon per arbeider i likevekt(steady-state):**
+som er kapitalintensiviteten i langsiktig likevekt(steady state). Vi ser av uttrykket at det er forholdet mellom spareraten($s$) og veksten i arbeidsstyrken($n$) som er bestemmende for nivået for kapitalintensivitet i steady-state i tillegg til produksjonselastisiteten til kapitalen($\alpha$). I steady-state vil forholdet mellom disse være konstant. Når $n$ øker for gitt $s$ og $\alpha$, vil kapitalintensiviteten reduseres fordi mengden arbeidskraft blir relativt større i forhold til mengden kapital som gis utfra spareraten. Vi ser også av eksponenten at jo viktigere kapitalen er for produksjonen (økende $\alpha$), jo større vil kapitalintensiviteten være for gitt forhold mellom spareraten($s$) og veksten i arbeidsstyrken($n$).\
+
+#### Nivå på produksjon per arbeider i likevekt(steady-state)
 
 Dette finner vi ved å ta utgangspunkt i $y(t)= k(t)^\alpha$ og setter inn uttrykket vi har funnet for kapitalintensiviteten i steady state:
 
-$y(t)^{ss}={(\frac{s}{n})}^{\frac{\alpha}{1-\alpha}}$
+(22) $y(t)^{ss}={(\frac{s}{n})}^{\frac{\alpha}{1-\alpha}}$\
+     Vi ser at resonnementet rundt kapitalintensiviteten i langsiktig likevekt(steady state) også gjelder her, men vi ser at produksjonselastisiteten til kapitalen($\alpha$) får enda større betydning for nivået på produksjon per arbeider i likevekt fordi vi finner $\alpha$ både oppe og nede i brøkeksponenten.
+
+### Predikasjoner fra Solow BAS modellen
+
+-   Vi ser fra utledningene av modellen at produksjonen per arbeider $y(t)$ er avhengig av kapitalintensiviteten $k(t)$. Kapitalintensiviteten er definert som kapital per arbeider. Når kapitalmengden øker for gitt mengde arbeidskraft, vil produksjonen per arbeider øke, men med en avtakende rate. Kapitalmengden er definert som hvor stor andel (sparerate($s$)) av total produksjon som blir investert. Dette betyr at både størrelsen på total produksjon og sparerate har betydning for kapitalmengde.
+
+-   Dette vil kunne implisere at i land med høy sparerate vil produksjonen per arbeider være høyere enn i land med lav sparerate for gitt vekstrate i arbeidsstyrken . Det vil også kunne tilsi at det er lavere produksjon per arbeider i land med høy vekstrate i arbeidsstyrken, enn i land med lav vekstrate i arbeidsstyrken for gitt sparerate.
+
+-   Fordi grenseproduktiviteten til kapitalintensiviteten er avtakende, vil det være slik at vekstraten i produksjon per arbeider vil være høyere jo lavere kapitalintensivitet. Dette betyr at land med lav kapitalintensivitet (lite kapital per arbeider) vil ha en høyere vekstrate i produksjon per arbeider enn land med høy kapitalintensivitet.
+
+-   Hvis to land, et fattig og et rikt, har ulikt nivå på BNP per arbeider, men alt annet likt, så vil det fattige landet ha større vekstrate enn det rike. På lang sikt innebærer dette at landene vil konvergere i nivå på BNP per arbeider.
 
 ### Solow-modellen med teknologisk utvikling og naturressurser.
 
@@ -250,90 +226,148 @@ Jeg vil nå ta for meg den utvidete modellen og utlede hva som påvirker vekst i
 
 Produktfunksjonen til denne modellen kan generelt framstilles på følgende måte:
 
-(1) $Y(t) = A(t)\cdot F(\underline K(t),\underline L(t),\underline R(t))$ der
+(A) $Y(t) = A(t)\cdot F(\underline K(t),\underline L(t),\underline R(t))$ der
 
-(2) Effektiv mengde kapital er: $\underline K(t) = q_K\cdot K(t)$
+(B) Effektiv mengde kapital er: $\underline K(t) = q_K\cdot K(t)$
 
-(3) Effektiv mengde arbeidskraft er: $\underline L(t) = q_L\cdot L(t)$
+(C) Effektiv mengde arbeidskraft er: $\underline L(t) = q_L\cdot L(t)$
 
-(4) Effektiv mengde ressurser er: $\underline R(t) = q_R\cdot R(t)$
+(D) Effektiv mengde ressurser er: $\underline R(t) = q_R\cdot R(t)$
 
-og $q_K, q_L$ og $q_R$ er kvalitetsindeks for de tre innsatsfaktorene.
+Parametrene $q_K, q_L$ og $q_R$ er kvalitetsindekser for de tre innsatsfaktorene.
 
 Denne produktfunksjonen kan spesifiseres med en Cobb-Douglas produktfunksjon på følgende måte:
 
-(5) $Y(t) = A(t)\cdot(q_K\cdot K(t))^\alpha\cdot(q_L\cdot L(t))^\beta\cdot(q_R\cdot R(t))^\gamma$
+(23) $Y(t) = A(t)\cdot(q_K\cdot K(t))^\alpha\cdot(q_L\cdot L(t))^\beta\cdot(q_R\cdot R(t))^\gamma$
 
-$0 < \alpha+\beta+\gamma < 1$ og $\alpha+\beta+\gamma = 1$
+der $0 < \alpha+\beta+\gamma < 1$ og $\alpha+\beta+\gamma = 1$
 
-**Følgende sammenhenger er definert:**
+#### Definisjoner
 
-(6) Total faktorproduktivitet: $A(t) = A_0\cdot e^{g_A\cdot t}$, vekstrate:${g_A}$
+Følgende sammenhenger er definert:
 
-(7) Arbeidskraften: $L(t) = L_0\cdot e^{n\cdot t}$, vekstrate: ${n}$
+(E) Total faktorproduktivitet: $A(t) = A_0\cdot e^{g_A\cdot t}$, vekstrate:${g_A}$
 
-(8) Naturressurser: $R(t) = R_0\cdot e^{-u\cdot t}$, vekstrate: ${-u}$
+(F) Arbeidskraften: $L(t) = L_0\cdot e^{n\cdot t}$, vekstrate: ${n}$
 
-(9) Kvalitetsindeks til kapital: $q_{K(t)}= e^{j\cdot t}$, vekstrate: ${j}$, $j>0$
+(G) Naturressurser: $R(t) = R_0\cdot e^{-u\cdot t}$, vekstrate: ${-u}$
 
-(10) Kvalitetsindeks til arbeid: $q_{L(t)}= e^{m\cdot t}$, vekstrate: ${m}$, $m>0$
+(H) Kvalitetsindeks til kapital: $q_{K(t)}= e^{j\cdot t}$, vekstrate: ${j}$, $j>0$
 
-(11) Kvalitetsindeks til naturressurser: $q_{R(t)}= e^{h\cdot t}$, vekstrate: ${h}$, $0\geq h\geq0$
+(I) Kvalitetsindeks til arbeid: $q_{L(t)}= e^{m\cdot t}$, vekstrate: ${m}$, $m>0$
 
-\
-Vi setter inn uttrykkene for kvalitetsindeksene inn i den spesifikke produktfunksjonen og får: $Y(t) = A_0\cdot e^{g_A\cdot t}\cdot(e^{j\cdot t}\cdot K(t))^\alpha\cdot(e^{m\cdot t}\cdot L(t))^\beta\cdot(e^{h\cdot t}\cdot R_0\cdot e^{-u\cdot t})^\gamma$
+(J) Kvalitetsindeks til naturressurser: $q_{R(t)}= e^{h\cdot t}$, vekstrate: ${h}$, $0\geq h\geq0$
 
-Vi samler leddene for kvalitetsindeksene sammen med teknologivariablen:
+#### Produksjon per arbeider
 
-$Y(t) = A(t)\cdot q_K^\alpha \cdot q_L^\beta\cdot q_R^\gamma \cdot K(t)^\alpha \cdot L(t)^\beta\cdot R(t)^\gamma$
+Vi setter inn uttrykkene for kvalitetsindeksene inn i den spesifikke produktfunksjonen og får:\
+(24) $Y(t) = A_0\cdot e^{g_A\cdot t}\cdot (K(t)\cdot e^{j\cdot t})^\alpha \cdot (L(t)\cdot e^{m\cdot t})^\beta\cdot (R_0\cdot e^{h\cdot t}\cdot e^{-u\cdot t})^\gamma$
+
+Vi bruker (E-J) og samler leddene for kvalitetsindeksene sammen med teknologivariablen:
+
+(25) $Y(t) = A(t)\cdot q_K^\alpha \cdot q_L^\beta\cdot q_R^\gamma \cdot K(t)^\alpha \cdot L(t)^\beta\cdot R(t)^\gamma$
 
 Vi har tidligere funnet at langs en balansert vekstbane vil forholdet mellom total kapital og total produksjon, ${\frac {K(t)}{Y(t)}}$, være konstant.
 
 Vi bruker dette og deler på $Y(t)^{\alpha}$:
 
-$Y(t)^{1-\alpha} = A(t)\cdot q_K^\alpha \cdot q_L^\beta\cdot q_R^\gamma \cdot ({\frac{K(t)}{Y(t)}})^\alpha \cdot L(t)^\beta\cdot R(t)^\gamma$
+(26) $Y(t)^{1-\alpha} = A(t)\cdot q_K^\alpha \cdot q_L^\beta\cdot q_R^\gamma \cdot ({\frac{K(t)}{Y(t)}})^\alpha \cdot L(t)^\beta\cdot R(t)^\gamma$
 
 For å fjerne eksponenten til $Y(t)$ opphøyes begge sider med ${\frac{1}{1-\alpha}}$ som gir:\
-$Y(t) = A(t)^{\frac{1}{1-\alpha}}\cdot q_K^{\frac{\alpha}{1-\alpha}} \cdot q_L^{\frac{\beta}{1-\alpha}}\cdot q_R^{\frac{\gamma}{1-\alpha}} \cdot ({\frac{K(t)}{Y(t)}})^{\frac{\alpha}{1-\alpha}} \cdot L(t)^{\frac{\beta}{1-\alpha}}\cdot R(t)^{\frac{\gamma}{1-\alpha}}$
+(27) $Y(t) = A(t)^{\frac{1}{1-\alpha}}\cdot q_K^{\frac{\alpha}{1-\alpha}} \cdot q_L^{\frac{\beta}{1-\alpha}}\cdot q_R^{\frac{\gamma}{1-\alpha}} \cdot ({\frac{K(t)}{Y(t)}})^{\frac{\alpha}{1-\alpha}} \cdot L(t)^{\frac{\beta}{1-\alpha}}\cdot R(t)^{\frac{\gamma}{1-\alpha}}$
 
 Vi vil ha et uttrykk for produksjon per arbeider og deler derfor på $L(t)$:\
-$y(t)={\frac{Y(t)}{L(t)}} = A(t)^{\frac{1}{1-\alpha}}\cdot q_K^{\frac{\alpha}{1-\alpha}} \cdot q_L^{\frac{\beta}{1-\alpha}}\cdot q_R^{\frac{\gamma}{1-\alpha}} \cdot ({\frac{K(t)}{Y(t)}})^{\frac{\alpha}{1-\alpha}} \cdot L(t)^{\frac{\beta}{1-\alpha}-1} \cdot R(t)^{\frac{\gamma}{1-\alpha}}$
+(28) $y(t)={\frac{Y(t)}{L(t)}} = A(t)^{\frac{1}{1-\alpha}}\cdot q_K^{\frac{\alpha}{1-\alpha}} \cdot q_L^{\frac{\beta}{1-\alpha}}\cdot q_R^{\frac{\gamma}{1-\alpha}} \cdot ({\frac{K(t)}{Y(t)}})^{\frac{\alpha}{1-\alpha}} \cdot L(t)^{\frac{\beta}{1-\alpha}-1} \cdot R(t)^{\frac{\gamma}{1-\alpha}}$
 
-Vi vil nå finne vekstraten i produksjon per arbeider og logaritmerer først:
+#### Vekstrate i produksjon per arbeider i steady state
 
-$ln(y(t))= {\frac{1}{1-\alpha}}\cdot ln(A(t))+{\frac{\alpha}{1-\alpha}}\cdot ln(q_K)+ {\frac{\beta}{1-\alpha}}\cdot ln(q_L) + {\frac{\gamma}{1-\alpha}}\cdot ln(q_R)+ {\frac{\alpha}{1-\alpha}}(ln(K(t))- ln(Y(t)))+ ({\frac{\beta}{1-\alpha}-1}) \cdot ln(L(t))+{\frac{\gamma}{1-\alpha}}\cdot ln(R(t))$
+Vi skal nå finne vekstraten i produksjon per arbeider og logaritmerer først:
 
-Vi bruker uttrykkene for vekstratene fra tidligere(vise til nr på likningene) og får da:
+(29) $ln(y(t))= {\frac{1}{1-\alpha}}\cdot ln(A(t))+{\frac{\alpha}{1-\alpha}}\cdot ln(q_K)+ {\frac{\beta}{1-\alpha}}\cdot ln(q_L) + {\frac{\gamma}{1-\alpha}}\cdot ln(q_R)+ {\frac{\alpha}{1-\alpha}}(ln(K(t))- ln(Y(t)))+ ({\frac{\beta}{1-\alpha}-1}) \cdot ln(L(t))+{\frac{\gamma}{1-\alpha}}\cdot ln(R(t))$
 
-$g_y=({\frac{1}{1-\alpha}}\cdot g_A+{\frac{\alpha}{1-\alpha}}\cdot j+ {\frac{\beta}{1-\alpha}}\cdot m + {\frac{\gamma}{1-\alpha}}\cdot h)+ {\frac{\alpha}{1-\alpha}}(g_K- g_Y)+({\frac{\beta}{1-\alpha}-1}) \cdot n-{\frac{\gamma}{1-\alpha}}\cdot u$
+Vi bruker uttrykkene for vekstratene fra tidligere(E-J) og får da:
 
-Langs en balansert vekstbane må $g_K-g_Y$ være lik 0 fordi ${\frac {K(t)}{Y(t)}}$ er konstant. Denne delen av uttrykket vil derfor være lik 0. Vi benevner alle vekstratene knyttet til kvalitetsindeksene for $\theta$ og får da at vekstraten i steady state er: $g_y^{ss}= \theta +({\frac{\beta}{1-\alpha}-1}) \cdot n-{\frac{\gamma}{1-\alpha}}\cdot u$
+(30) $g_y=({\frac{1}{1-\alpha}}\cdot g_A+{\frac{\alpha}{1-\alpha}}\cdot j+ {\frac{\beta}{1-\alpha}}\cdot m + {\frac{\gamma}{1-\alpha}}\cdot h)+ {\frac{\alpha}{1-\alpha}}(g_K- g_Y)+({\frac{\beta}{1-\alpha}-1}) \cdot n-{\frac{\gamma}{1-\alpha}}\cdot u$
 
-Vi gjør en liten omregning: ${\frac{\beta}{1-\alpha}-1} = {\frac{\beta}{1-\alpha}-{\frac{1-\alpha}{1-\alpha}}}={\frac{\beta+\alpha-1}{1-\alpha}}$\
-En av antakelsene i modellen er konstant skalutbytte. Dette betyr at summen av produksjonselastisitetene er lik 1, altså at: $\alpha+\beta+\gamma = 1$ som innebærer at vårt uttrykk $\beta+\alpha-1 = -\gamma$
+Langs en balansert vekstbane må $g_K-g_Y$ være lik 0 fordi ${\frac {K(t)}{Y(t)}}$ er konstant. Denne delen av uttrykket vil derfor være lik 0. Vi benevner alle vekstratene knyttet til teknologi og kvalitetsindekser samlet for $\theta$ og får da at vekstraten i produksjon per arbeider i steady state er:
 
-Vi setter dette inn: $g_y^{ss}= \theta -{\frac{\gamma}{1-\alpha}} \cdot n-{\frac{\gamma}{1-\alpha}}\cdot u$ som da gir:\
+(31) $g_y^{ss}= \theta +({\frac{\beta}{1-\alpha}-1}) \cdot n-{\frac{\gamma}{1-\alpha}}\cdot u$
+
+Vi gjør en liten omregning:\
+${\frac{\beta}{1-\alpha}-1} = {\frac{\beta}{1-\alpha}-{\frac{1-\alpha}{1-\alpha}}}={\frac{\beta+\alpha-1}{1-\alpha}}$
+
+En av antakelsene i modellen er konstant skalutbytte. Dette betyr at summen av produksjonselastisitetene er lik 1, altså at: $\alpha+\beta+\gamma = 1$ som innebærer at vårt uttrykk $\beta+\alpha-1$ blir redusert til $-\gamma$.
+
+Vi setter dette inn i (31):\
+(32) $g_y^{ss}= \theta -{\frac{\gamma}{1-\alpha}} \cdot n-{\frac{\gamma}{1-\alpha}}\cdot u$ som da gir:\
 \
-$g_y^{ss}= \theta -{\frac{\gamma}{1-\alpha}} \cdot (n+u)$
+(33) $g_y^{ss}= \theta -{\frac{\gamma}{1-\alpha}} \cdot (n+u)$
 
 Dette uttrykket sier at:
 
-Hvis kvaliteten på ressursene $\theta$ øker, så øker vekstraten i produksjonen per innbygger i steady state.
+-   Vekstraten i produksjonen per arbeider i steady state avhenger av forholdet mellom kvaliteten på produksjonsfaktorene og teknologi ($\theta$) og vekstraten i arbeidskraften og forbruket av naturressurser(reduksjonsrate).\
 
-Den andre delen av uttrykket ser vi reduserer vekstraten. $n$ er vekstraten i befolkningen og $u$ er forbruket av naturressurser. Disse har hver for seg og i sum en effekt. For det første vil økt befolkningsvekst for gitt ressursuttak bidra til lavere vekstrate fordi man blir flere og fordi ressurssen per arbeider blir mindre. For det andre vil økt ressursbruk for gitt befolkningsvekst bety at ressursene forbrukes fortere.Mer?
+-   Hvis kvaliteten på produksjonsfaktorene eller teknologien forbedres, ser vi at det øker vekstraten i produksjonen per arbeider.
 
-Jo viktigere naturressursene er for produksjonen, jo større vil den negative effekten være på vekstraten, både direkte og via produksjonskoeffisientene.
+-   Hvis vekstraten i arbeidskraften øker for gitt forbruk av naturressurser,vil dette ha negativ effekt på produksjonen per arbeider fordi hver arbeider vil ha mindre naturressurser å arbeide med.
+
+-   Hvis forbruket av ikke-fornybare naturressurser(reduksjonsraten) øker for gitt vekstrate i arbeidskraften, vil dette ha negativ effekt på produksjonen per arbeider fordi ressursen blir raskere uttømt.
+
+-   Over tid vil ikke-fornybare naturressurser bli mindre fordi de forbrukes. Også dette betyr at hver arbeider vil ha mindre naturressurser å arbeide med som da gir negativ effekt på produksjonen per arbeider. Denne effekten vil forsterkes gjennom hvor viktig naturressursen er i produksjonen. Produksjonselastisiteten til naturressursen, $\gamma$, ser vi er over brøkstreken i koeffisienten ${\frac{\gamma}{1-\alpha}}$ foran $(n+u)$. Dette innebærer at jo større $\gamma$ er, jo større negativ effekt på vekstraten i produksjonen per innbygger i steady state.\
+
+-   For å kompensere for den negative effekten av at det blir stadig mindre naturressurser per arbeider, må enten kvaliteten til produksjonsfaktorene øke( for eksempel ved at utvinningsmetoder av naturressurser forbedres) eller en generell teknologisk vekst.
+
+#### Vekstrate i produksjon per arbeider
+
+Jeg ønsker å finne hva som generelt påvirker vekstraten i produksjon per arbeider og tar utgangspunkt i likning (24).
+
+$Y(t) = A_0\cdot e^{g_A\cdot t}\cdot (K(t)\cdot e^{j\cdot t})^\alpha \cdot (L(t)\cdot e^{m\cdot t})^\beta\cdot (R_0\cdot e^{h\cdot t}\cdot e^{-u\cdot t})^\gamma$
+
+Ganger inn eksponenten:\
+(34) $Y(t) = A_0\cdot e^{g_A\cdot t}\cdot K(t)^{\alpha}\cdot e^{\alpha\cdot j\cdot t} \cdot L(t)^\beta\cdot e^{\beta \cdot m\cdot t}\cdot R_0^{\gamma}\cdot e^{-\gamma \cdot u\cdot t}\cdot e^{\gamma \cdot h\cdot t}$
+
+Samler alle ledd med vekstrater for kvalitetsindeksene og teknologi:\
+(35) $Y(t) = A_0\cdot e^({^{g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)\cdot t}}\cdot K(t)^\alpha \cdot L(t)^\beta\cdot R_0^\gamma \cdot e^{-\gamma \cdot u \cdot t}$
+
+Deler på $L(t)$ for å finne produksjon per arbeider:\
+(36) $y(t) =\frac {Y(t)}{L(t)} = A_0\cdot e^({^{g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)\cdot t}}\cdot K(t)^\alpha \cdot L(t)^{\beta-1}\cdot R_0^\gamma \cdot e^{-\gamma \cdot u \cdot t}$
+
+Vi deriverer med hensyn på $t$ for å finne veksten i produksjonen per arbeider over tid, og bruker definisjonene av vekstratene:
+
+(37) $\frac{\partial y(t)}{\partial t} = g_y(t)= (g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)+ \alpha \cdot \frac{\frac{\partial K(t)}{\partial t}}{K(t)}+(\beta-1)\cdot n - \gamma \cdot u$
+
+Vi erstatter $\frac{\frac{\partial K(t)}{\partial t}}{K(t)}$ med $s \cdot Y(t)$ og deler dette leddet med $L(t)$ oppe og nede og får:
+
+(38) $\frac{\partial y(t)}{\partial t} = g_y(t)= (g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)+ \alpha \cdot \frac{s \cdot y(t)}{k(t)}+(\beta-1)\cdot n - \gamma \cdot u$
+
+Jeg vil omforme andre ledd i uttrykket til et uttrykk som vi kjenner fra før, og bruker at $\alpha \cdot n - \alpha \cdot n =0$ som settes inn:
+
+(39) $\frac{\partial y(t)}{\partial t} = g_y(t)= (g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)+ \alpha \cdot \frac{s \cdot y(t)}{k(t)}+\beta\cdot n - n - \gamma \cdot u + \alpha \cdot n-\alpha \cdot n$
+
+Rydder i uttrykket: (40) $\frac{\partial y(t)}{\partial t} = g_y(t)= (g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)+ \alpha \cdot (\frac{s \cdot y(t)}{k(t)}-n)+ (\alpha+\beta-1)\cdot n-\gamma \cdot u$
+
+Vi har tidligere brukt at $\alpha + \beta+\gamma = 1.$ Dette gir at $- \gamma =\alpha+\beta-1$ som settes inn samt at vi lager fellesnevner for andre ledd i uttrykket:
+
+(41) $\frac{\partial y(t)}{\partial t} = g_y(t)= (g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h)+ \alpha \cdot( \frac{s \cdot y(t)-n\cdot k(t)}{k(t)})-\gamma\cdot(u+n)$
+
+Av dette uttrykket ser vi at vekst i produksjon per arbeider vil avhenge av tre forhold.\
+1. Graden av teknologivekst og kvaliteten på produksjonsfaktorene:\
+$g_A +\alpha \cdot j +\beta \cdot m +\gamma \cdot h$\
+2. Veksten i kapitalintensiviteten: Vi kjenner igjen telleren i uttrykket som sier noe om forholdet mellom de faktiske og de nødvendige investeringene. $\frac{s \cdot y(t)-n\cdot k(t)}{k(t)}$\
+3. Reduksjonsraten i naturressursene per arbeider:\
+$\gamma\cdot(u+n)$
+
+#### Predikasjoner fra Solow modell med teknologi og naturressuser
+
+-   Vi kan forvente at land som har høy sparerate $s$, lav vekst i arbeidsstyrken $n$, utstrakt bruk av moderne teknologi $A$, en godt kvalifisert arbeidskraft(humankapital) og mye naturressurser vil ha et høyt nivå på BNP per arbeider.
+
+-   Veksten i BNP per arbeider i steady state er avhengig av at kvaliteten på produksjonsfaktorene eller teknologien forbedres.
+
+-   Ulike land har ulike forutsetninger når det gjelder naturressurser og bruk av teknologi. Det vil derfor være slik at forskjeller i produksjon per arbeider kan vedvare over tid.
 
 ## Data og metode
 
 ### Data
-
-**SJEKKLISTE**\
-- Tydelig oversikt over datakilder brukt i den empiriske analysen.\
-- Beskrivelse og forklaring av variabler brukt i analysen.\
-- Tydelig oversikt over programvare og pakker brukt til den empiriske analysen.\
-- Regresjonsmodellen er korrekt beskrevet i tekst og definert med en ligning\
-\
 
 ```{r}
 #| label: load-pkgs
@@ -654,79 +688,49 @@ df_growth2019$ln_gdppc0<-log(df_growth2019$gdppc0)
 df_growth2019 <- subset(df_growth2019, select = c("country",  "region", "income", "iso3c", "iso2c","year", "poptot", "gdppc","ln_gdppc", "gdppc0","ln_gdppc0", "avg_gdpgrowth", "avg_n", "avg_p", "avg_nsy", "avg_nry", "avg_gi", "avg_gx", "avg_educ"))
 ```
 
-Jeg har brukt data fra World Development Indicators som er en stor samling av data som er satt sammen av Verdensbanken. Det er laget en en "package" for R, WDI, for å forenkle analysemulighetene av de tilgjengelige data. Jeg har benyttet meg av denne i datauttaket. En utfyllende oversikt over variablene i datasettet vil man finne i Appendikset.
-
-
+Jeg har brukt data fra World Development Indicators som er en stor samling av data som er satt sammen av Verdensbanken. Det er laget en en "package" for R, WDI, for å forenkle analysemulighetene av de tilgjengelige data. Foreleser har laget datakoding for uthenting av relevante variabler som jeg har benyttet meg av. En utfyllende oversikt over variablene i datasettet vil man finne i Appendikset.
 
 ### Metode
 
-*I metodeseksjonen skal du beskrive hvordan du har håndtert og analysert datamaterialet. Beskriv hvilke pakker du har brukt for å lage grafer, og hvilken metode du har brukt for å gjennomføre den økonometriske analysen.*
+På bakgrunn av de matematiske utledningene er jeg kommet fram til at følgende likning kan være et estimat for hvilke faktorer som påvirker veksten i BNP i et land:
 
+(33) $g_{y,i} = {\alpha} + {\beta_1} \cdot educ_i + {\beta_2} \cdot n_i + {\beta_3} \cdot p_i + {\beta_4}\cdot nsy_i + {\beta_5} \cdot nry_i + {\beta_6} \cdot gi_i + {\beta_7} \cdot lnDPPC0_i + {\beta_8} \cdot gx_i + {\epsilon_i}$
 
-På bakgrunn av de matematiske utledningene er jeg kommet fram til at
-følgende likning kan være et estimat for hvilke faktorer som påvirker veksten i BNP i et land:
+der $g_{y,i}$ er vekstraten i BNP i land nr $i$,\
+$educ_i$ er gjennomsnittlig antall år i skole i land nr $i$,\
+$n_i$ er gjennomsnittlig vekst i arbeidsstyrken i land nr $i$,\
+$p_i$ er gjennomsnittlig vekst i befolkningen i land nr $i$,\
+$nsy_i$ er gjennomsnittlig nettosparing i land nr $i$,\
+$nry_i$ er gjennomsnittlig uttømming av naturressurser i land nr $i$,\
+$gi_i$ er gjennomsnittlig årlig vekst i investeringene i land nr $i$,\
+$lnDPPC0_i$ er BNP per innbygger i år 2000 i land nr $i$,\
+$gx_i$ er gjennomsnittlig vekstrate i eksport i land nr $i$.\
+${\epsilon_i}$ er restledd som dekker resten av variasjonen i den avhengige variablen
 
-$g_{y,i} = {\alpha} + {\beta_1} \cdot educ_i + {\beta_2} \cdot n_i + {\beta_3} \cdot p_i + {\beta_4}\cdot nsy_i  +  {\beta_5} \cdot nry_i + {\beta_6} \cdot gi_i  + {\beta_7} \cdot lnDPPC0_i + {\beta_8} \cdot gx_i  + {\epsilon_i}$
-
-der $g_{y,i}$ er vekstraten i BNP i land nr $i$,  
-$educ_i$ er gjennomsnittlig antall år i skole i land nr $i$,  
-$n_i$ er gjennomsnittlig vekst i arbeidsstyrken i land nr $i$,  
-$p_i$ er gjennomsnittlig vekst i befolkningen i land nr $i$,  
-$nsy_i$ gjennomsnittlig nettosparing i land nr $i$,  
-$nry_i$ gjennomsnittlig uttømming av naturressurser i land nr $i$,  
-$gi_i$ gjennomsnittlig årlig vekst i investeringene i land nr $i$,  
-$lnDPPC0_i$ BNP per innbygger i år 2000 i land nr $i$,  
-$gx_i$ gjennomsnittlig vekstrate i eksport i land nr $i$.
-${\epsilon_i}$ er restledd 
-
-*Du vil analysere sammenhengen mellom vekstraten i BNP per innbygger og de forklarende variablene ved bruk av multippel linjær regresjonsanalyse. For å estimere modellen vil du bruke minste-kvadrat-metoden (OLS). Du trenger ikke å gå inn på detaljene i minste-kvadrat-metoden, men du må skrive at du har brukt denne metoden. I tillegg må du beskrive den ligning som du estimerer ved bruk av metoden.*
-
-*NB: det ser ut å finnes observasjoner i datamaterialet som har en stor innvirkning på resultatet ("outliers" eller "influential observations"). Du kan lese om hvordan vi kan identifisere disse her. I avsnitt 4.2 viser jeg et eksempel på hvordan du kan ta vekk disse observasjonene fra din analyse.*
-
-*Metodedelen avslutter mappeoppgave 1.*
-
-**Stikkord:**
-
--   om variablene\
--   regresjonslikning\
--   minste kvadraters metode
-
-**Vi skal bruke minste kvadraters metode(OLS):**\
-Antakelser:\
-- Den avhengige variabelen er kontinuerlig, kardinal og har en normalfordeling\
-- Funksjonen er linjer i parameterne $y_i = {\alpha_1} \cdot X_{1,i}+{\alpha_1} \cdot X_{2,i}+{\alpha_2} \cdot X^{2}_{3,i}+{\epsilon_i}$\
-- Utvalget er tilfeldig (variablene er i.i.d -- uavhengig og identisk fordelte)\
-- De forklarende variablene er ikke (perfekt) korrelerte med hverandre - Feiltermene er homoskedastiske - Det er usannsynlig at det er ekstreme observasjoner (outliers) i utvalget\
-NB:forklar antakelsene og angi kilde.\
-\
+Det er brukt minste kvadraters metode(OLS) i den multivariate regresjonen. For grafisk framstilling har jeg brukt ggplot.
 
 ## Resultat
 
 ### Deskriptiv statistikk
 
-*Den deskriptive statistikken har til formål å gi informasjon om datamaterialet og visualisere datamengden. I denne seksjonen vil du ikke teste om det er en statistisk signifikant sammenheng mellom ulike variabler, men du kan vise fram om det ser ut å finnes en korrelasjon.*
-
-*Avsnittet skal inneholde en tabell som viser gjennomsnittlige verdier, samt min og maks-verdier for alle de variabler som du bruker i den økonometriske analysen. Tabellen skal limes inn i manuskriptet og gis navnet «Tabell 1. Deskriptiv statistikk». Beskriv tabell 1 i teksten*
-
-
-
 ```{r ordne navn i tabellen}
 options(scipen = 999)
 library(psych)
 library(kableExtra)
-table_des<-round(describe(df_growth2019[,c('ln_gdppc',
-                          'avg_gdpgrowth','ln_gdppc0','avg_n','avg_p', 'avg_nsy',
-                          'avg_nry','avg_gi','avg_gx','avg_educ'
+table_des<-round(describe(df_growth2019[,c('avg_educ','avg_n','avg_p','avg_nsy','avg_nry',
+                                           'avg_gi','ln_gdppc0','avg_gx','ln_gdppc',
+                                           'avg_gdpgrowth'
                         )], fast=TRUE),2)
 table_des<- as.data.frame(table_des)
-rownames(table_des)<-c("log BNP per innbygger i 2019 (ln_gdppc)","Gjennomsnittlig årlig vekstrate i BNP pc 2000-2019 (%) (avg_gdpgrowth)","log BNP per innbygger i 2000 (ln_gdppc0)", "Gjennomsnittlig årlig vekstrate i arbeidskraften (%) (avg_n)","Gjennomsnittlig årlig befolkningsvekst (%) (avg_p)","Gjennomsnittlig sparing for perioden 2000-2015 (%) (avg_nsy)","Gjennomsnittlig årlig vekstrate (negativ) i naturressurser (%) (avg_nry)", "Gjennomsnittlig årlig vekstrate i investeringer (%) (avg_gi)","Gjennomsnittlig årlig vekstrate i eksport (%) (avg_gx)","Gjennomsnittlig antall år i skole (avg_educ)")
+rownames(table_des)<-c("Gjennomsnittlig antall år i skole (avg_educ)", "Gjennomsnittlig årlig vekstrate i arbeidskraften (%) (avg_n)","Gjennomsnittlig årlig befolkningsvekst (%) (avg_p)","Gjennomsnittlig sparing for perioden 2000-2015 (%) (avg_nsy)","Gjennomsnittlig årlig vekstrate (negativ) i naturressurser (%) (avg_nry)","Gjennomsnittlig årlig vekstrate i investeringer (%) (avg_gi)","log BNP per innbygger i 2000 (ln_gdppc0)","Gjennomsnittlig årlig vekstrate i eksport (%) (avg_gx)","log BNP per innbygger i 2019 (ln_gdppc)","Gjennomsnittlig årlig vekstrate i BNP pc 2000-2019 (%) (avg_gdpgrowth)")
 
 ```
 
 #### Tabell deskriptiv statitikkk
+
 Her er en oversikt over noen parametre for alle variablene i datasettet.
 
-```{r}
+```{r tabell deskriptiv statistikk}
 #| label: Deskriptiv statistikk
 
 knitr::kable(table_des[,2:6], caption = "Deskriptiv statistikk", col.names = c("N", "Gj.snitt","Standardavvik","Min", "Maks")) %>%
@@ -734,82 +738,87 @@ knitr::kable(table_des[,2:6], caption = "Deskriptiv statistikk", col.names = c("
   kable_styling(bootstrap_options = c("striped")) 
 ```
 
-Datasettet består av 98 observasjoner i perioden 2000-2019 som dekker alle forhold som beskrives i Solowmodellen. I tillegg er det tatt med en eksportvariabel. 
+Datasettet består av 98 observasjoner i perioden 2000-2019 som dekker forhold som beskrives i Solowmodellen. I tillegg er det tatt med en eksportvariabel selv om modellen forutsetter lukket økonomi.\
+\
+Vi ser av tabellen at det er noen variabler som har stor avstand mellom minimums- og maksimumsverdi. Dette gjelder sparerate($avg_nsy$), vekstrate i uttømming av naturressurser($avg_nry$) og investeringsrate($avg_gi$). Disse vil jeg undersøke nærmere for å se hvorvidt ekstremverdiene kan utelates, og hvordan dette vil påvirke resultatene. Resultatet av denne analysen er lagt i Appendikset.
 
-#### Grafisk oversikt over noen sammenhenger   
-*Avsnitt 4.1 skal også skal inneholde grafer som visualiserer korrelasjoner mellom nivå på og vekst i BNP per innbygger på den ene siden og utvalgte variabler. Beskriv hva grafene viser. Legge inn reglinjer? Lage noe per region?*
-
-
+#### Grafisk oversikt over noen sammenhenger
 
 ##### Sammenhengen mellom sparing og BNP per innbygger
 
-```{r}
+```{r sparing vs log BNP per cap}
 #| label: fig-sparing
-#| fig-cap: "Forholdet mellom sparing og BNP per innbygger"
+#| fig-cap: "Forholdet mellom sparing og BNP per innbygger i 2019(log)"
 
 
-ggplot(df_growth2019, aes(x= avg_nsy, y = ln_gdppc, color = region)) +
+ggplot(df_growth2019, aes(x= avg_nsy, y = ln_gdppc , color = region)) +
   geom_point()+
   theme(legend.position = "bottom" , legend.text = element_text(size = 7),               legend.title = element_text(size =8))+
-  labs(x= "Gjennomsnittlig sparing for perioden 2000-2015", y = "lnBNP per innbygger",title= "Forholdet mellom sparing og BNP per innbygger")
+ labs(x= "Gjennomsnittlig sparing for perioden 2000-2015", y = "BNP per innbygger i 2019 (log)",title= "Forholdet mellom sparing og BNP per innbygger i 2019") +
+  theme(axis.text=element_text(size=8),
+        axis.title=element_text(size=9))
   
 ```
 
+**Kommentar:**\
+Vi ser av figur 2 at det er svak positiv korrelasjon mellom sparerate og nivå på BNP per innbygger, og det er veldig stort spenn i observasjonene av sparerate.
 
-**Kommentar**\
-- kanskje lage flere reglinjer? - stor spredning i datamaterialet\
-- ser ut til å være liten sammenheng,prøver å fjerne outliers\
-- kan se ut som det er større sammenheng innad i regioner - sjekkes
 \
 
 ##### Sammenhengen mellom gjennomsnittlig årlig vekstrate i befolkningen og BNP per innbygger
 
 ```{r}
 #| label: fig-befolkning
-#| fig-cap: "Forholdet mellom befolkningsvekst og BNP per innbygger"
+#| fig-cap: "Forholdet mellom befolkningsvekst og BNP per innbygger i 2019(log)"
 ggplot(df_growth2019, aes(x= avg_p, y = ln_gdppc, color = region) ) +
   geom_point()+
   theme(legend.position = "bottom", legend.text = element_text(size = 7),                legend.title = element_text(size =8))+
-  labs(x= "Gjennomsnittlig årlig vekstrate i befolkningen", y = "lnBNP per innbygger",title= "Forholdet mellom vekstrate i befolkningen og BNP per innbygger")
+  labs(x= "Gjennomsnittlig årlig vekstrate i befolkningen", y = "BNP per innbygger(log)",title= "Forholdet mellom vekstrate i befolkningen og \nBNP per innbygger i 2019")+
+    theme(axis.text=element_text(size=8),
+        axis.title=element_text(size=9))
 ```
 
-**Kommentar**\
-- ser ut til å være negativ sammenheng mellom vekstrate i befolkningen og nivå på BNP per innbygger - kommentere regionene?\
-- fjerne outliers?
-- også her forskjell mellom regioner
+**Kommentar:**\
+Av figur 3 ser vi at det er en negativ korrelasjon mellom vekstrate i befolkningen og nivå på BNP per innbygger målt i 2019. Spesielt ser vi at land i Europe & Central Asia har negativ eller veldig lav vekstrate i befolkningen og høy BNP per innbygger, mens land i regionen Sub-Saharan Africa har høy vekstrate i befolkningen og relativt lav BNP per innbygger.
+
 \
 
 ##### Sammenhengen mellom utdanningsnivå og BNP per innbygger
 
 ```{r}
 #| label: fig-utdanning
-#| fig-cap: "Forholdet mellom utdanning og BNP per innbygger"
+#| fig-cap: "Forholdet mellom utdanning og BNP per innbygger log i 2019"
 ggplot(df_growth2019, aes(x= avg_educ, y = ln_gdppc, color=region) ) +
   geom_point()+
   theme(legend.position = "bottom", legend.text = element_text(size = 7),
         legend.title = element_text(size =8))+
-  labs(x= "Gjennomsnittlig utdanning i antall år", y = "lnBNP per innbygger",title= "Forholdet mellom utdanning og BNP per innbygger")
+  labs(x= "Gjennomsnittlig utdanning i antall år", y = "BNP per innbygger log",title= "Forholdet mellom utdanning og BNP per innbygger") +
+    theme(axis.text=element_text(size=8),
+        axis.title=element_text(size=9))
 ```
 
-**Kommentar**\
-- sterk sammenheng mellom nivå på BNP og utdanningsnivå
-\
+**Kommentar:**
 
-##### Sammenhengen mellom sparing og årlig vekstrate i BNP per capita
+Av figur 4 ser vi at det er en positiv korrelasjon mellom nivå på BNP i 2019 og utdanningsnivå(målt i gjennomsnittlig antall år i skole).
+
+##### Sammenhengen mellom sparing og årlig vekstrate i BNP per innbygger
 
 ```{r}
 
 #| label: fig-sparing_og_vekst
 #| fig-cap: "Forholdet mellom sparing og vekst i BNP per innbygger"
 ggplot(df_growth2019, aes(x= avg_nsy, y = avg_gdpgrowth, color=region) ) +
-  geom_point()+
+  geom_point() +
   theme(legend.position = "bottom", legend.text = element_text(size = 7),
         legend.title = element_text(size =8)) +
-  labs(x= "Gjennomsnittlig sparing for perioden 2000-2015", y = "Vekst i BNP per innbygger",title= "Forholdet mellom sparing og vekst i BNP per innbygger")
+  labs(x= "Gjennomsnittlig sparing for perioden 2000-2015", y = "Vekst i BNP per innbygger",title= "Sammenhengen mellom sparing og \nvekst i BNP per innbygger") +
+    theme(axis.text=element_text(size=8),
+        axis.title=element_text(size=9))
+
 ```
 
-**Kommentar** - stor spredning i materialet, svak sammenheng - sjekker for outliers\
-\
+**Kommentar:**\
+Vi ser av figur 5 at det er stor spredning i observasjonene, men det kan se ut som om det er en svak positiv korrelasjon mellom gjennomsnittlig sparerate og gjennomsnittlig vekstrate i BNP per innbygger.
 
 ##### Sammenhengen mellom utdanningsnivå og årlig vekstrate i BNP per innbygger
 
@@ -820,230 +829,138 @@ ggplot(df_growth2019, aes(x= avg_educ, y = avg_gdpgrowth, color=region) ) +
   geom_point()+
   theme(legend.position = "bottom", legend.text = element_text(size = 7),
         legend.title = element_text(size =8))+
-  labs(x= "Gjennomsnittlig utdanning i antall år", y = "Vekstrate i BNP per innbygger",title= "Forholdet mellom utdanning og vekst i BNP per innbygger")
+  labs(x= "Gjennomsnittlig utdanning i antall år", y = "Vekstrate i BNP per innbygger",title= "Forholdet mellom utdanning og \nvekst i BNP per innbygger") +
+    theme(axis.text=element_text(size=8),
+        axis.title=element_text(size=9))
 ```
 
 **Kommentar**\
-- stor spredning i materialet, svak sammenheng - sjekker for outliers
-
-```{r}
-suppressPackageStartupMessages(library(scales))
-# Her tar jeg vekk land som mangler observasjoner. Dette gjør grafen penere.  
-df_growth2019_n <- df_growth2019[complete.cases(df_growth2019$region,df_growth2019$poptot, df_growth2019$avg_p, df_growth2019$gdppc),]
-```
+Av figur 6 ser vi at det er veldig stort sprik i observasjonene, og det er vanskelig å se noen korrelasjon mellom utdanning og vekstrate i BNP per innbygger.
 
 ### Økonometrisk analyse
 
-Fra gjennomgangen av Solow-modellen med teknologi og naturressurser fant vi at vekstraten i BNP per innbygger i et land påvirkes positivt av spareraten og vekstraten i arbeidskraften. Vekstraten påvikres negativt av befolkningsvekst. Tiden er nå inne til å sjekke om dette er tilfelle når vi ser på de faktiske tall.
+Jeg vil kort oppsummere den grafiske gjennomgangen:\
+- Svak positiv korrelasjonen mellom sparerate og nivå på BNP per innbygger\
+- Tydelig negativ korrelasjonen mellom befolkningsvekst og BNP per innbygger i 2019\
+- Tydelig positiv korrelasjon mellom utdanning og nivå på BNP per innbygger i 2019\
+- Svak positiv sammenheng mellom sparerate og vekst i BNP per innbygger\
+- Ikke mulig å se noen korrelasjon mellom utdanning og vekst i BNP per innbygger
 
-Fra kapitlet om metode har vi at regresjonsmodellen som brukes er:  
+Fra gjennomgangen av Solow-modellen med teknologi og naturressurser fant vi at vekstraten i BNP per innbygger er avhengig av graden av teknologivekst og kvaliteten på produksjonsfaktorene, veksten i kapitalintensiviteten og reduksjonsgraden i naturressurser per arbeider. De to første faktorene vil virke positivt på vekstraten, men den siste vil virke negativt.
 
-$g_{y,i} = {\alpha} + {\beta_1} \cdot educ_i + {\beta_2} \cdot n_i + {\beta_3} \cdot p_i + {\beta_4}\cdot nsy_i  +  {\beta_5} \cdot nry_i + {\beta_6} \cdot gi_i  + {\beta_7} \cdot lnDPPC0_i + {\beta_8} \cdot gx_i  + {\epsilon_i}$
-
-der $g_{y,i}$ er vekstraten i BNP i land nr $i$,  
-$educ_i$ er gjennomsnittlig antall år i skole i land nr $i$,  
-$n_i$ er gjennomsnittlig vekst i arbeidsstyrken i land nr $i$,  
-$p_i$ er gjennomsnittlig vekst i befolkningen i land nr $i$,  
-$nsy_i$ gjennomsnittlig nettosparing i land nr $i$,  
-$nry_i$ gjennomsnittlig uttømming av naturressurser i land nr $i$,  
-$gi_i$ gjennomsnittlig årlig vekst i investeringene i land nr $i$,  
-$lnDPPC0_i$ BNP per innbygger i år 2000 i land nr $i$,  
-$gx_i$ gjennomsnittlig vekstrate i eksport i land nr $i$.
-${\epsilon_i}$ er restledd 
-
-
-Her er variablene jeg har brukt i den multiple regresjonsmodellen. Den første modellen jeg vil vurdere omfatter variablene 1-7. Jeg har utelatt variablen "gjennomsnittlig vekstrate i eksport" fordi en av antakelsene i vekstmodellen til Solow er at økonomien er lukket. Signifikansnivået er satt til 1 $\%$. 
- 
-1.avg_educ: gjennomsnittlig antall år i skole  
-2.avg_n: gjennomsnittlig vekst i arbeidsstyrken  
-3.avg_p: gjennomsnittlig vekst i befolkningen 
-4.avg_nsy: gjennomsnitlig nettosparing  
-5.avg_nry: gjennomsnittlig uttak av naturressurser  
-6.avg_gi: gjennomsnittlig årlig vekst i investeringene  
-7.ln_gdppc0: BNP per innbygger i år 2000  
-8.avg_gx: gjennomsnittlig vekstrate i eksport  
-
+Her er variablene jeg vil bruke i den multivariate regresjonsmodellen.\
+\
+1. avg_educ: gjennomsnittlig antall år i skole\
+2. avg_n: gjennomsnittlig vekst i arbeidsstyrken\
+3. avg_p: gjennomsnittlig vekst i befolkningen\
+4. avg_nsy: gjennomsnitlig nettosparing\
+5. avg_nry: gjennomsnittlig uttak av naturressurser\
+6. avg_gi: gjennomsnittlig årlig vekst i investeringene\
+7. ln_gdppc0: BNP per innbygger i år 2000\
+8. avg_gx: gjennomsnittlig vekstrate i eksport\
+\
+Den første modellen jeg vil vurdere omfatter variablene 1-7. I antakelsene i Solowmodellen er det også gitt alle i befolkningen er i arbeid. Dette skulle da bety at vi kun trenger å forholde oss til en vekstrate. I denne multivariate modellen er både gjennomsnittlig vekst i arbeidsstyrken og gjennomsnittlig vekst i befolkningen. Jeg har ikke med variablen "gjennomsnittlig vekstrate i eksport" i modell 1 fordi en av antakelsene i vekstmodellen til Solow er at økonomien er lukket. Signifikansnivået er satt til 1 $\%$.
 
 #### Modell 1 lukket økonomi
+
 ```{r modell 1 lukket}
 suppressPackageStartupMessages(library(sjPlot))
 suppressPackageStartupMessages(library(sjmisc))
 suppressPackageStartupMessages(library(sjlabelled))
 
 model_full_1_growth <- lm(avg_gdpgrowth  ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi +  ln_gdppc0, data= df_growth2019)
-tab_model(model_full_1_growth)
+tab_model(model_full_1_growth,title="Oppsummering regresjon modell 1")
 ```
-Vi ser av tabellen at variablene forklarer totalt 57.7 $\%$ ($R^2 adjusted$) av sammenhengen, men at det er store forskjeller i påvirkningskraft og signifikans. Vi kan tolke resultatene slik:  
 
-- Et år ekstra utdanning(avg_educ) gir 0.28 monetære enheter økt vekst i BNP per innbygger. Dette er et signifikant resultat fordi p-verdien er 0.001 som innebærer at det er 99 $\%$ sikkert at estimatet er forskjellig fra 0.  
+**Kommentar:**
 
-- 1 $\%$ økning i arbeidsstyrken(avg_n) øker veksten i BNP per innbygger med 3.08$\%$. P-verdien er imidlertid høy - 0.560 - så det er ikke et signifikant resultat.  
+Tabell 2 i første kolonne($Predictors$) angir konstantleddet(Intercept) og de ulike variablene. $Estimates$ angir størrelsen på konstantleddet og koeffisienten til hver variabel. Koeffisienten angir påvirkning på den avhengige variablen. $CI$ er konfidensintervallet. Dette betyr i hvilket område kan vi forvente å finne den reelle verdien på variablen. $p$-verdikolonnen angir sannsynligheten for feil.
 
-- 1 $\%$ økning i befolkningen(avg_p) reduserer veksten i BNP per innbygger med 0.85 $\%$. Resultatet er signifikant fordi p-verdien er mindre enn 0.001.  
+Vi ser av tabellen at variablene forklarer totalt 57.7 $\%$ ($R^2 adjusted$) av variansen i observasjonene, men at det er store forskjeller i påvirkningskraft og signifikans. Vi kan tolke resultatene slik:
 
-- 1 $\%$ økning i spareraten(avg_nsy) gir 0.07 $\%$ økning i veksten i BNP per innbygger. Også her er resultatet signifikant fordi p-verdien er mindre enn 0.001.  
+-   Et år ekstra utdanning(avg_educ) gir 0.28 $\%$ økt vekst i BNP per innbygger. Dette er et signifikant resultat fordi p-verdien er 0.001 som innebærer at det er 99 $\%$ sikkert at estimatet er forskjellig fra 0.
 
-- 1 $\%$ økning i uttaket av naturressurser(avg_nry) reduserer veksten i BNP per innbygger med 0.07 $\%$. Resultatet er ikke signifikant fordi p-verdien er 0.007. 
-- 1 $\%$ økning i nettoinvesteringene(avg_gi) gir økning i veksten i BNP per innbygger, men estimatet er ikke signifikant fordi p-verdien er 0.137.  
+-   variablen arbeidsstyrken(avg_n) har ikke et signifikant resultat.
 
-- 1 $\%$ økning i nivået i BNP per innbygger i år 2000(ln_gdppc0) vil redusere vekstraten i BNP per innbygger med 1.48 $\%$. Resultatet er signifikant fordi p-verdien er mindre enn 0.001.  
+-   1 $\%$ økning i i vekstraten i befolkningen(avg_p) reduserer veksten i BNP per innbygger med 0.85 $\%$. Resultatet er signifikant fordi p-verdien er mindre enn 0.001.
 
-\
+-   1 $\%$ økning i spareraten(avg_nsy) gir 0.07 $\%$ økning i veksten i BNP per innbygger. Også her er resultatet signifikant fordi p-verdien er mindre enn 0.001.
+
+-   variablen naturressurser(avg_nry) har ikke et signifikant resultat.
+
+-   variablen nettoinvesteringer(avg_gi) har ikke et signifikant resultat.
+
+-   1 $\%$ økning i nivået i BNP per innbygger i år 2000(ln_gdppc0) vil redusere vekstraten i BNP per innbygger med 1.48 $\%$. Resultatet er signifikant fordi p-verdien er mindre enn 0.001.
+
+I forhold til modellens predikasjoner er ikke resultatene helt i samsvar. Resultatene som følger modellen er at utdanning og befolkningsvekst reduserer veksten og spareraten øker veksten. Den forventede negative effekten av uttak av ressursvariablen er til stede,men er ikke signifikant(men ganske nær). Den totale forklaringskraften 57.7 $\%$ ($R^2 adjusted$) viser at det er forhold som ikke modellen forklarer.
 
 #### Modell 2 åpen økonomi
-Model med eksport - ikke i tråd med antakelsen om lukket økonomi:
-Jeg til eksportvariabel for å se om resultatet endres vesentlig.
+
+Jeg har her laget en multivariat regresjonsmodell der eksportvariabelen (avg_gx) er lagt til. Dette er ikke i tråd med antakelsen om lukket økonomi, men kan sees på som en fornuftig utvidelse av modellen fordi alle land har handel med andre land.
 
 ```{r modell 2 eksport}
 model_2_eksport <- lm(avg_gdpgrowth ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0 + avg_gx, data= df_growth2019)
-tab_model(model_2_eksport)
+tab_model(model_2_eksport,title="Oppsummering regresjon modell 2")
 ```
 
-**Kommentar**
-Vi ser at $R^2 adjusted$ øker fra 57.7$\%$ til 70.6$\%$ og estimatene for variablene endres også. Mer om dette.
+**Kommentar:**\
+Vi ser at $R^2 adjusted$ øker fra 57.7$\%$ til 70.6$\%$ når vi legger til eksportvariablen. Vi ser også at estimatene for variablene endres. En kort gjennomgang av resultatene av denne modellen sammenliknet med modell 1 viser at:
 
+-   variablen utdanning(avg_educ) er ikke lenger signifikant .
 
-#### Modeller uten ekstremverdier
+-   variablen arbeidsstyrken(avg_n) har heller ikke lenger et signifikant resultat.
 
-Det er ekstreme observasjoner i datamaterialet som er gjennomgått. Jeg har valgt å fjerne alle verdier som er definert som ekstremverdier. Jeg har kjørt en egen multippel regresjon med datasettet uten disse. 
-Koden som er brukt for å rydde datasettet er beskrevet her: https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/ for reference
+-   1 $\%$ økning i befolkningen(avg_p) reduserer veksten i BNP per innbygger med 0.71 $\%$. Dette er lavere enn i model 1. Resultatet er signifikant.
 
+-   1 $\%$ økning i spareraten(avg_nsy) gir 0.07 $\%$ økning i veksten i BNP per innbygger.Dette er ingen endring i forhold til model 1. Også her er resultatet signifikant.
 
-```{r fjerne outliers}
-df <- df_growth2019[complete.cases( df_growth2019$avg_educ,
-                                    df_growth2019$avg_n,df_growth2019$avg_p,
-                                    df_growth2019$avg_nsy, df_growth2019$avg_nry,
-                                    df_growth2019$avg_gi,df_growth2019$ln_gdppc0,
-                                    df_growth2019$avg_gx),]
-Q1_educ <- quantile(df$avg_educ, .25 )
-Q3_educ <- quantile(df$avg_educ, .75)
-IQR_educ <- IQR(df$avg_educ)
+-   Variablen naturressurser(avg_nry) har ikke et signifikant resultat.
 
+-   Variablen nettoinvesteringer(avg_gi) er ikke signifikant.
 
+-   1 $\%$ økning i nivået i BNP per innbygger i år 2000(ln_gdppc0) vil redusere vekstraten i BNP per innbygger med 1.01 $\%$. Dette er lavere enn i model 1. Resultatet er signifikant.
 
-Q1_n <- quantile(df$avg_n, .25 )
-Q3_n <- quantile(df$avg_n, .75)
-IQR_n <- IQR(df$avg_n)
+-   1 $\%$ økning i eksporten(avg_gx) gir 0.22 $\%$ økning i veksten i BNP per innbygger. Resultatet er signifikant.
 
-Q1_p <- quantile(df$avg_p, .25 )
-Q3_p <- quantile(df$avg_p, .75)
-IQR_p <- IQR(df$avg_p)
-
-Q1_nsy <- quantile(df$avg_nsy, .25 )
-Q3_nsy <- quantile(df$avg_nsy, .75)
-IQR_nsy <- IQR(df$avg_nsy)
-
-Q1_nry <- quantile(df$avg_nry, .25 )
-Q3_nry <- quantile(df$avg_nry, .75)
-IQR_nry <- IQR(df$avg_nry)
-
-Q1_gi <- quantile(df$avg_gi, .25 )
-Q3_gi <- quantile(df$avg_gi, .75)
-IQR_gi <- IQR(df$avg_gi)
-
-Q1_ln_gdppc0 <- quantile(df$ln_gdppc0, .25 )
-Q3_ln_gdppc0 <- quantile(df$ln_gdppc0, .75)
-IQR_ln_gdppc0 <- IQR(df$ln_gdppc0)
-
-Q1_gx <- quantile(df$avg_gx, .25 )
-Q3_gx <- quantile(df$avg_gx, .75)
-IQR_gx <- IQR(df$avg_gx)
-```
-
-
-```{r nytt df uten outliers}
-no_outliers <- subset(df, 
-                      df$avg_educ > (Q1_educ - 1.5*IQR_educ) & df$avg_educ < (Q3_educ + 1.5*IQR_educ) & 
-                        df$avg_n > (Q1_n - 1.5*IQR_n) & df$avg_n < (Q3_n + 1.5*IQR_n)& 
-                        df$avg_p > (Q1_p - 1.5*IQR_p) & df$avg_p < (Q3_p + 1.5*IQR_p) & 
-                        df$avg_nsy > (Q1_nsy - 1.5*IQR_nsy) & df$avg_nsy < (Q3_nsy + 1.5*IQR_nsy) & 
-                        df$avg_nry > (Q1_nry - 1.5*IQR_nry) & df$avg_nry < (Q3_nry + 1.5*IQR_nry) & 
-                        df$avg_gi > (Q1_gi - 1.5*IQR_gi) & df$avg_gi < (Q3_gi + 1.5*IQR_gi) & 
-                        df$ln_gdppc0 > (Q1_ln_gdppc0 - 1.5*IQR_ln_gdppc0) & df$ln_gdppc0 < (Q3_ln_gdppc0 + 1.5*IQR_ln_gdppc0) & 
-                        df$avg_gx > (Q1_gx - 1.5*IQR_gx) & df$avg_gx < (Q3_gx + 1.5*IQR_gx))
-
-```
-
-```{r deskriptiv uten outliers}
-table_no_outliers<-round(describe(no_outliers[,c('ln_gdppc',
-                          'avg_gdpgrowth','ln_gdppc0','avg_n','avg_p', 'avg_nsy',
-                          'avg_nry','avg_gi','avg_gx','avg_educ'
-                        )], fast=TRUE),2)
-table_no_outliers<- as.data.frame(table_no_outliers)
-rownames(table_no_outliers)<-c("log BNP per innbygger i 2019 (ln_gdppc)","Gjennomsnittlig årlig vekstrate i BNP \npc 2000-2019 (%) (avg_gdpgrowth)","log BNP per innbygger i 2000 (ln_gdppc0)", "Gjennomsnittlig årlig vekstrate i arbeidskraften (%) (avg_n)","Gjennomsnittlig årlig befolkningsvekst (%) (avg_p)","Gjennomsnittlig sparing for perioden 2000-2015 (%) (avg_nsy)","Gjennomsnittlig årlig vekstrate (negativ) i naturressurser (%) (avg_nry)", "Gjennomsnittlig årlig vekstrate i investeringer (%) (avg_gi)","Gjennomsnittlig årlig vekstrate i eksport (%) (avg_gx)","Gjennomsnittlig antall år i skole (avg_educ)")
-```
-##### Deskriptiv statistikk uten ekstremverdier
-```{r}
-#| label: Deskriptiv statistikk uten ekstremverdier
-
-knitr::kable(table_no_outliers[,2:6], caption = "Deskriptiv statistikk uten ekstremverdier", col.names = c("N", "Gj.snitt","SD","Min", "Maks")) %>%
-  column_spec(1,width = "5cm") %>% 
-  kable_styling(bootstrap_options = c("striped")) 
-```
-
-Kommentar:  
-Vi sammenlikner med tabell 1 og ser at antall verdier i datasettet er redusert til 81. Det er antall observasjoner knyttet til vekstrate i naturressurser, investeringer og eksport som har hatt ekstremverdier.  
-
-##### Model 3 lukket økonomi
-```{r mod 3 full df no outliers}
-model_3_growth <- lm(avg_gdpgrowth ~ avg_educ  + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0, data= no_outliers)
-tab_model(model_3_growth)
-```
-**Kommentar**
-Vi ser at $R^2 adjusted$ er 63.0$\%$ og estimatene for variablene endres også. Mer om dette.
-
-
-
-
-##### Model 4 åpen økonomi
-Model med eksport - ikke i tråd med antakelsen om lukket økonomi:
-```{r mod 4 eksport no outliers}
-model_4_eksport <- lm(avg_gdpgrowth ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0 + avg_gx, data= no_outliers)
-tab_model(model_4_eksport)
-```
-Kommentar:  
-Vi ser at $R^2 adjusted$ øker fra 63.0$\%$ til 72.2$\%$ og estimatene for variablene endres også. Mer om dette.
-
-*Beskriv effekten av de ulike variablene på vekst i BNP per innbygger. Er f.eks. en høyere sparerate knyttet til en høyere eller lavere vekst i BNP per innbygger? Er effekten signifikant? Beskriv i tillegg i hvor godt dine forklaringsvariabler klarer å forklare vekstraten i BNP per innbygger.*
-
-
+\
+Konklusjon er at det ser ut til at å inkludere vekstrate i eksport styrker den totale forklaringskraften til modellen, men dette er å gå utover vekstmodellens forutsetninger.
 
 ## Diskusjon
- 
-- Det er en svak positiv signifikant sammenheng mellom sparerate og vekst i BNP per innbygger.  
-- Det er en svak negativ signifikant sammenheng mellom befolkningsvekst og vekst i BNP per innbygger.  
-- Det er en positiv sammenheng mellom vekst i arbeidsstyrken og vekst i BNP per innbygger. Sammenhengen er ikke signifikant.  
-- Det er en svak positiv sammenheng mellom vekst i investeringsrate og vekst i BNP per innbygger. Sammenhengen er ikke signifikant.
 
+### Vurderinger om model versus resultat
 
+Ut fra analysen som er gjort i model 1 er det en svak positiv signifikant sammenheng mellom sparerate og vekst i BNP per innbygger, en svak negativ signifikant sammenheng mellom befolkningsvekst og vekst i BNP per innbygger. I tillegg er det en negativ signifikant sammenheng mellom nivået på BNP per innbygger i år 2000(ln_gdppc0) og vekstraten i BNP per innbygger. Det som vi ikke har fått signifikante resultater på er naturressursvariablen. Den spiller en vesentlig rolle i vekstmodellen, men vi har altså intet resultat. Årsaken til dette kan være at landene i utvalget har så ulike forutsetninger med hensyn til om de har naturressurser, om de er under utvinning og hvilket omfang snakker vi om.
 
+### Forholdet til ekstremverdier(outliers)
 
+Det er usikkert om det vil styrke analysen om vi fjerner ekstremverdiene i datasettet. Årsaken til dette er for det første at ekstremverdiene uttrykker reelle verdier og dermed viser at det er en faktisk stor spredning i observasjonene. For det andre er mange av observasjonene som er ekstremverdier fra afrikanske land. Ved å ta disse ut av datasettet kan det føre til at vi får en skjevhet i utvalget. Alle disse landene tilhører lavinntektsland, og vi vil derfor ikke fange hele bildet. Jeg har derfor valgt å kjøre hovedanalysen uten å ta vekk ekstremverdiene, men behandler problemstillingen i Appendikset.
 
+### Politiske tiltak for bærekraftig vekst
 
-- Støtter resultatene prediksjonene fra Solow-modellen?
-- Hva betyr resultatene?
-- Hvilke konklusjoner kan vi dra fra den empiriske analysen?
-- Finnes det noen problemer med analysen eller datamaterialet som fører til at vi kanskje ikke burde dra for sterke konklusjoner?
-  
-
-*Til slutt skal du diskutere implikasjoner for policy (politiske inngrep). Basert på din analyse, hva ville du anbefale at politiker, som ønsker å oppnå bærekraftig vekst, skal føre for politikk*
+Det er ulike nivåer for politiske tiltak og det er lett å bli frustrert over at det skjer lite på samarbeidsområdet mellom land. De ulike internasjonale avtaler som er inngått er dels ganske uforpliktende og målsetningene oppfyller ikke behovet for tiltak. Det er derfor kanskje viktig å se på hva vi kan gjøre i eget land der vi ofte vil kunne se resultater på kort sikt. Noen tiltak vil koste mer enn andre, men bidraget til vår felles framtid vil avgjøre om beslutningene er gode. Jeg tenker her på den norske oljeutvinningen og at avvikling av den over tid er et viktig bidrag til bærekraftig vekst. Andre tiltak som er viktige er knyttet til hvordan unngå å sløse med ressurser gjennom for eksempel gjenbruk og energisparing.
 
 ## Referanser
 
-*I referanseavsnittet skal du oppgi de referanser du har brukt til å skrive oppgaven. Alle referanser i teksten skal være med i referanselisten og vice versa. UiT Norges arktiske universitet har valgt EndNote som sitt referanseverktøy og stilen APA som sin referansestil. Det fins en egne norsk versjon av APA. Universitetsbibliotekets (UBs) EndNote-sider finner du her. Bruk stilen APA eller en annen anerkjent referansestil (Harvard, Chicago etc.). Valgt referansestil skal anvendes konsekvent. For å kunne gjøre dette enkelt, kan du laste ned EndNote-programmet. Eksempler på referanser basert på UBs norske variant av APA finner du her. Det er også mulig å integrere referanser i for eksempel Quarto, slik jeg har gjort her nede.*
+Forelesningsnotater sok-2011 vår 2023
 
-Hess, Peter. N. 2016. Economic Growth and Sustainable Development. Routledge. https://www.routledge.com/Economic-Growth-and-Sustainable-Development/Hess/p/book/9781138853935.
+Hess, Peter. N. 2016. Economic Growth and Sustainable Development. Routledge. <https://www.routledge.com/Economic-Growth-and-Sustainable-Development/Hess/p/book/9781138853935.>
 
-https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/
+<https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/>
+
+Meld. St.13 (2018-2019). Muligheter for alle. Finansdepartementet <https://www.regjeringen.no/contentassets/472d31ff815d4ce7909f5593bf7d79b8/no/pdfs/stm201820190013000dddpdfs.pdf>
 
 ## Appendiks
 
-*I appendiks skal du legge inn en lenke til dine R-skript på GitHub. Du kan i tillegg legge inn figurer og tabeller som du ikke ønsker å ha med i hovedteksten. Om appendiks inneholder både kode, figurer og tabeller må du lage ulike avsnitt i appendiks.*
+### Lenke til R-skript på GitHub.
+
+Her er lenken til mine koder.
 
 ### Variabeloversikt
 
+Her er en utfyllende beskrivelse av variablene som ligger i datasettet.
+
 | Variabelnavn  | Beskrivelse                                                                                                                                                                                                                       |
-|--------------------------|----------------------------------------------|
+|---------------------------|---------------------------------------------|
 | country       | Navn på land                                                                                                                                                                                                                      |
 | region        | Inndeling av verden i regioner(antall land i parentes): East-Asia & Pacific(11), Europe & Central-Asia(37), Latin-America & Caribbean(18), North-America(1), South-Asia(5), Middle-East & North-Africa(3), Sub-Saharan-Africa(23) |
 | income        | Inntektsgrupper: Landene er inndelt i fire kategorier etter gjennomsnittsinntekt(antall land i parentes): Low income(9), Lower middle income(29), Upper middle income(26), High income(34)                                        |
@@ -1061,4 +978,119 @@ https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/
 | avg_nry       | Gjennomsnittlig årlig vekstrate (negativ) i naturressurser for hvert land i perioden                                                                                                                                              |
 | avg_gi        | Gjennomsnittlig årlig vekstrate i investeringer for hvert land i perioden                                                                                                                                                         |
 | avg_gx        | Gjennomsnittlig årlig vekstrate i eksport for hvert land i perioden                                                                                                                                                               |
-| avg_educ      | Gjennomsnittlig antall år i skole for tidsperioden 2000 - 2019 for hvert land, basert på tilgjenglig data (vil være 2000, 2005, 2010)                                                                                             |
+| avg_educ      | Gjennomsnittlig antall år i skole for tidsperioden 2000 - 2019 for hvert land, basert på tilgjenglig data (vil være 2000, 2005, 2010). Denne variablen er brukt som indikasjon på humankapital.                                   |
+
+### Modeller uten ekstremverdier
+
+Vi så fra tabell 1 at det er ekstreme observasjoner i datamaterialet. Jeg lager et boxplot for å se nærmere på variablene som var nevnt.
+
+```{r }
+
+library("reshape2")
+df_growth2019_plot<-df_growth2019 %>% 
+  select(c(country, region, income, avg_nsy,avg_nry, avg_gi,avg_gx))
+
+df_growth2019_long<- melt(df_growth2019_plot)
+
+```
+
+```{r boxplot}
+ggplot(df_growth2019_long, aes(x = variable, y = value)) + 
+  geom_boxplot() +
+  labs(title= "Outliers i datasettet") 
+```
+
+**Kommentar:** Vi ser at det er variablene uttak av ressurser($avg_nry$), nettoinvesteringer($avg_gi$) og vekstrate ieksport($avg_gx$) som inneholder ekstremverdier.
+
+Jeg har valgt å fjerne alle observasjoner som er definert som ekstremverdier. Jeg har kjørt en egen multivariat regresjon med datasettet uten disse. Koden som er brukt for å rydde datasettet er beskrevet her: https://www.r-bloggers.com/2021/09/how-to-remove-outliers-in-r-3/
+
+```{r fjerne outliers}
+df <- df_growth2019[complete.cases( df_growth2019$avg_nry,
+                                    df_growth2019$avg_gi),]
+
+Q1_nry <- quantile(df$avg_nry, .25 )
+Q3_nry <- quantile(df$avg_nry, .75)
+IQR_nry <- IQR(df$avg_nry)
+
+Q1_gi <- quantile(df$avg_gi, .25 )
+Q3_gi <- quantile(df$avg_gi, .75)
+IQR_gi <- IQR(df$avg_gi)
+
+
+
+# Q1_gx <- quantile(df$avg_gx, .25 )
+# Q3_gx <- quantile(df$avg_gx, .75)
+# IQR_gx <- IQR(df$avg_gx)
+```
+
+```{r nytt df uten outliers}
+no_outliers <- subset(df, 
+        df$avg_nry > (Q1_nry - 1.5*IQR_nry) & df$avg_nry < (Q3_nry + 1.5*IQR_nry) & df$avg_gi > (Q1_gi - 1.5*IQR_gi) & df$avg_gi < (Q3_gi + 1.5*IQR_gi)) 
+                      
+                      #& df$avg_gx > (Q1_gx - 1.5*IQR_gx) & df$avg_gx < (Q3_gx + 1.5*IQR_gx))
+
+```
+
+```{r deskriptiv uten outliers}
+table_no_outliers<-round(describe(no_outliers[,c('avg_educ','avg_n','avg_p','avg_nsy',
+                                                 'avg_nry','avg_gi','ln_gdppc0',
+                                                 'avg_gx','ln_gdppc','avg_gdpgrowth'
+                        )], fast=TRUE),2)
+table_no_outliers<- as.data.frame(table_no_outliers)
+rownames(table_no_outliers)<-c("Gjennomsnittlig antall år i skole (avg_educ)", "Gjennomsnittlig årlig vekstrate i arbeidskraften (%) (avg_n)","Gjennomsnittlig årlig befolkningsvekst (%) (avg_p)","Gjennomsnittlig sparing for perioden 2000-2015 (%) (avg_nsy)","Gjennomsnittlig årlig vekstrate (negativ) i naturressurser (%) (avg_nry)","Gjennomsnittlig årlig vekstrate i investeringer (%) (avg_gi)","log BNP per innbygger i 2000 (ln_gdppc0)","Gjennomsnittlig årlig vekstrate i eksport (%) (avg_gx)","log BNP per innbygger i 2019 (ln_gdppc)","Gjennomsnittlig årlig vekstrate i BNP pc 2000-2019 (%) (avg_gdpgrowth)")
+
+
+```
+
+#### Deskriptiv statistikk uten ekstremverdier
+
+```{r tabell deskriptiv statistikk uten ekstremverdier}
+#| label: Deskriptiv statistikk uten ekstremverdier
+
+knitr::kable(table_no_outliers[,2:6], caption = "Deskriptiv statistikk uten ekstremverdier", col.names = c("N", "Gj.snitt","SD","Min", "Maks")) %>%
+  column_spec(1,width = "5cm") %>% 
+  kable_styling(bootstrap_options = c("striped")) 
+```
+
+**Kommentar:**\
+Vi sammenlikner med tabell 1 og ser at antall verdier i datasettet er redusert til 90. Det er antall observasjoner knyttet til vekstrate i naturressurser, investeringer og eksport som har hatt ekstremverdier.\
+- vurdering knyttet til bruk av datasett uten ekstremverdier.
+
+#### Model 3 lukket økonomi
+
+Vi kjører først en multivariat regresjonsanalyse for en lukket økonomi basert på datasettet uten ekstremverdier for variablene avg_nry(uttak av naturressurser) og avg_gi(nettoinvesteringer).
+
+```{r mod 3 full df no outliers}
+model_3 <- lm(avg_gdpgrowth ~ avg_educ  + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0, data= no_outliers)
+tab_model(model_3,title="Oppsummering regresjon modell 3" )
+```
+
+**Kommentar:**\
+Vi ser at $R^2 adjusted$ er økt fra 57.7 $\%$ i modell 1 til 67,9$\%$ i denne modellen og estimatene for variablene endres også.\
+- avg_educ (antall år i skole) er ikke lenger signifikant\
+- avg_p (vekst i befolkningen) har økt negativ betydning og er signifikant\
+- avg_nsy(spareraten) er signifikant og samme betydning\
+- avg_gi (vekst i investeringene) har økt betydning og er blitt signifikant\
+- ln_gdppc0(BNP per innbygger i år 2000) har redusert negativ betydning og er signifikant.\
+Vi ser at forklaringskraften er økt ved å ta vekk ekstremverdiene i datasettet. Det kan imidlertid innvendes at det kan føre til at får skjevheter i utvalget.
+
+#### Model 4 åpen økonomi
+
+Til slutt gjør vi en multivariat regresjonsanalyse med en model med eksport basert på datasettet uten ekstremverdier for variablene avg_nry og avg_gi og avg_gx.
+
+```{r mod 4 eksport no outliers}
+model_4 <- lm(avg_gdpgrowth ~ avg_educ + avg_n + avg_p + avg_nsy + avg_nry + avg_gi + ln_gdppc0 + avg_gx, data= no_outliers)
+tab_model(model_4,title="Oppsummering regresjon modell 4")
+```
+
+**Kommentar:**\
+Vi ser at $R^2 adjusted$ øker fra 70.6$\%$ i model 2 til 75.6$\%$ i modell 4 i tillegg til at estimatene for variablene endres.
+
+-   avg_p (vekst i befolkningen) har økt negativ betydning og er signifikant\
+-   avg_nsy(nettosparing) er signifikant og samme betydning\
+-   avg_gi (vekst i investeringene) har økt betydning og er blitt signifikant\
+-   ln_gdppc0(BNP per innbygger i år 2000) har redusert negativ betydning og er signifikant.\
+-   1 $\%$ økning i eksporten(avg_gx) gir lavere økning i veksten i BNP per innbygger enn modellen med ekstremverdier. Resultatet er signifikant.
+
+\
+Vi ser at forklaringskraften til denne modellen øker i styrke når vi fjerner ekstremverdiene. Det er likevel samme utfordringene som med modell 3 fordi vi fjerner reelle verdier som kan gjøre at utvalget blir skjevt.
