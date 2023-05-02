@@ -713,7 +713,7 @@ $lnDPPC0_i$ er BNP per innbygger i år 2000 i land nr $i$,\
 $gx_i$ er gjennomsnittlig vekstrate i eksport i land nr $i$.\
 ${\epsilon_i}$ er restledd som dekker resten av variasjonen i den avhengige variablen
 
-Det er brukt minste kvadraters metode(OLS) i den multivariate regresjonen. For grafisk framstilling har jeg brukt ggplot.
+Variablen $gx_i$ er kun brukt i modell 2 og 4. Det er brukt minste kvadraters metode(OLS) i den multivariate regresjonen. For grafisk framstilling har jeg brukt ggplot.
 
 ## Resultat
 
@@ -960,6 +960,7 @@ Meld. St.13 (2018-2019). Muligheter for alle. Finansdepartementet <https://www.r
 ### Lenke til R-skript på GitHub.
 
 Her er lenken til mine koder.
+https://github.com/odk022/SOK-2011/blob/main/sok-2011-Mappeoppgave_1_og_2.qmd
 
 ### Variabeloversikt
 
